@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import MainLayout from "../layouts/MainLayout";
+
 import HomePage from "../pages/HomePage";
 import GalleryPage from "../pages/GalleryPage";
 import SubmitPage from "../pages/SubmitPage";
@@ -9,23 +11,29 @@ import IdeasPage from "../pages/IdeasPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/gallery",
-    element: <GalleryPage />,
-  },
-  {
-    path: "/submit",
-    element: <SubmitPage />,
-  },
-  {
-    path: "/admin",
-    element: <AdminPage />,
-  },
-  {
-    path: "/ideas",
-    element: <IdeasPage />,
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "gallery",
+        element: <GalleryPage />,
+      },
+      {
+        path: "submit",
+        element: <SubmitPage />,
+      },
+      {
+        path: "admin",
+        element: <AdminPage />,
+      },
+      {
+        path: "ideas",
+        element: <IdeasPage />,
+      },
+    ],
   },
 ]);
 
