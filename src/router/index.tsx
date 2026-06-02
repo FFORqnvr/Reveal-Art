@@ -1,22 +1,10 @@
-import { createBrowserRouter, Link } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
-function HomePage() {
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <Link to="/gallery">Перейти в галерею</Link>
-    </div>
-  );
-}
-
-function GalleryPage() {
-  return (
-    <div>
-      <h1>Gallery Page</h1>
-      <Link to="/">На главную</Link>
-    </div>
-  );
-}
+import HomePage from "../pages/HomePage";
+import GalleryPage from "../pages/GalleryPage";
+import SubmitPage from "../pages/SubmitPage";
+import AdminPage from "../pages/AdminPage";
+import IdeasPage from "../pages/IdeasPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +14,18 @@ const router = createBrowserRouter([
   {
     path: "/gallery",
     element: <GalleryPage />,
+  },
+  {
+    path: "/submit",
+    element: <SubmitPage />,
+  },
+  {
+    path: "/admin",
+    element: <AdminPage />,
+  },
+  {
+    path: "/ideas",
+    element: <IdeasPage />,
   },
 ]);
 
