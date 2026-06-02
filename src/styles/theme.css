@@ -1,0 +1,49 @@
+:root {
+  /* Backgrounds */
+  --color-background: #E8D8CE;
+  --color-background-soft: #F3E8DF;
+
+  /* Surfaces */
+  --color-surface: #D8BFB2;
+  --color-surface-muted: #C9A397;
+  --color-surface-hover: #B98F83;
+
+  /* Text */
+  --color-text-primary: #5A3F37;
+  --color-text-secondary: #7A5A50;
+  --color-text-muted: #A07C72;
+
+  /* Borders */
+  --color-border: #C7A99F;
+
+  /* Brand */
+  --color-primary: #9B6F63;
+  --color-primary-hover: #7F584F;
+  --color-accent: #C79A7B;
+
+  /* States */
+  --color-success: #6F8A66;
+  --color-warning: #C28A4C;
+  --color-danger: #A85E58;
+
+  /* Fonts */
+  --font-heading: Georgia, "Times New Roman", serif;
+  --font-body: Inter, Arial, sans-serif;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(90, 63, 55, 0.08);
+  --shadow-md: 0 4px 12px rgba(90, 63, 55, 0.12);
+  --shadow-lg: 0 8px 24px rgba(90, 63, 55, 0.16);
+}
