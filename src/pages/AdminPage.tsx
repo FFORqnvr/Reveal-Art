@@ -37,25 +37,30 @@ export default function AdminPage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       <PageTitle
         title="Admin Moderation"
-        subtitle="Review artworks (mock admin panel without backend)"
+        subtitle="Review submitted artworks (mock mode, no backend)"
       />
 
       {message && (
-        <div className="mt-4 p-4 rounded-xl border bg-blue-50 text-blue-700">
+        <div className="mt-4 p-4 rounded-xl border border-blue-200 bg-blue-50 text-blue-700">
           {message}
         </div>
       )}
 
       <div className="mt-6 space-y-4">
         {pendingArtworks.length === 0 ? (
-          <div className="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-            No pending artworks. Everything is already processed.
+          <div className="p-10 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
+            <div className="text-lg font-semibold mb-2">
+              🎉 All caught up!
+            </div>
+            <div className="text-sm opacity-70">
+              There are no pending artworks to review. Everything has been processed.
+            </div>
           </div>
         ) : (
           pendingArtworks.map((artwork) => (
             <div
               key={artwork.id}
-              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-5"
+              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-5 transition hover:shadow-md"
             >
               <img
                 src={artwork.imageUrl}
