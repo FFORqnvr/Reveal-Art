@@ -32,6 +32,8 @@ export default function SubmitPage() {
 
   const [errors, setErrors] = useState<Errors>({});
 
+  const [preview, setPreview] = useState<string | null>(null);
+
   const validate = (): boolean => {
     const newErrors: Errors = {};
 
@@ -67,6 +69,13 @@ export default function SubmitPage() {
       ...prev,
       image: file,
     }));
+
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setPreview(url);
+    } else {
+      setPreview(null);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -88,6 +97,7 @@ export default function SubmitPage() {
       image: null,
     });
 
+    setPreview(null);
     setErrors({});
   };
 
@@ -135,8 +145,20 @@ export default function SubmitPage() {
         </Select>
         {errors.technique && <p className="text-red-500 text-sm">{errors.technique}</p>}
 
-        <input type="file" accept="image/*" onChange={handleFile} />
-        {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
+        <div>
+          <input type="file" accept="image/*" onChange={handleFile} />
+          {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
+
+          {preview && (
+            <div className="mt-3">
+              <img
+                src={preview}
+                alt="Preview"
+                className="w-full max-h-[300px] object-cover rounded-xl border"
+              />
+            </div>
+          )}
+        </div>
 
         <Button type="submit">Submit artwork</Button>
       </form>
