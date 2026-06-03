@@ -1,60 +1,95 @@
 import { useState } from "react";
-import { artworks as initialArtworks } from "../data/Artworks";
-import type { Artwork } from "../types/Artwork";
+import PageTitle from "../components/PageTitle";
+import { artworks as mockArtworks } from "../data/Artworks";
+import type { Artwork } from "../data/Artworks";
 
 export default function AdminPage() {
-  const [artworks, setArtworks] = useState<Artwork[]>(initialArtworks);
+  const [artworks, setArtworks] = useState<Artwork[]>(mockArtworks);
 
-  const updateStatus = (id: string, status: Artwork["status"]) => {
+  const pendingArtworks = artworks.filter(
+    (artwork) => artwork.status === "pending"
+  );
+
+  const publishArtwork = (id: string) => {
     setArtworks((prev) =>
-      prev.map((a) => (a.id === id ? { ...a, status } : a))
+      prev.map((artwork) =>
+        artwork.id === id
+          ? { ...artwork, status: "published" }
+          : artwork
+      )
     );
   };
 
-  const pending = artworks.filter((a) => a.status === "pending");
+  const rejectArtwork = (id: string) => {
+    setArtworks((prev) =>
+      prev.map((artwork) =>
+        artwork.id === id
+          ? { ...artwork, status: "rejected" }
+          : artwork
+      )
+    );
+  };
 
   return (
-    <div>
-      <h1 className="text-2xl font-semibold">Admin</h1>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+      <PageTitle
+        title="Admin Moderation"
+        subtitle="Review submitted artworks (mock mode, no backend)"
+      />
 
       <div className="mt-6 space-y-4">
-        {pending.length === 0 ? (
-          <div className="opacity-50">No pending artworks</div>
+        {pendingArtworks.length === 0 ? (
+          <div className="p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+            No pending artworks. Everything is already processed.
+          </div>
         ) : (
-          pending.map((art) => (
+          pendingArtworks.map((artwork) => (
             <div
-              key={art.id}
-              className="border border-[var(--color-border)] rounded-[14px] bg-[var(--color-surface)] p-4 flex gap-4 items-center justify-between"
+              key={artwork.id}
+              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-5"
             >
-              <div className="flex gap-4 items-center">
-                <img
-                  src={art.imageUrl}
-                  className="w-16 h-16 object-cover rounded"
-                />
+              <img
+                src={artwork.imageUrl}
+                alt={artwork.title}
+                className="w-full max-h-[300px] object-cover rounded-xl border"
+              />
 
-                <div>
-                  <div className="font-medium">{art.title}</div>
-                  <div className="text-sm opacity-70">
-                    {art.artistName} (@{art.artistNickname})
-                  </div>
-
-                  <div className="text-xs mt-1 opacity-50">
-                    {art.category} • {art.style}
-                  </div>
-                </div>
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold">{artwork.title}</h3>
+                <p className="text-sm opacity-70">
+                  {artwork.artistName} (@{artwork.artistNickname})
+                </p>
               </div>
 
-              <div className="flex gap-2">
+              <p className="mt-3 text-sm">{artwork.description}</p>
+
+              <div className="flex flex-wrap gap-2 mt-3 text-xs">
+                <span className="px-2 py-1 rounded bg-gray-100">
+                  {artwork.category}
+                </span>
+                <span className="px-2 py-1 rounded bg-gray-100">
+                  {artwork.style}
+                </span>
+                <span className="px-2 py-1 rounded bg-gray-100">
+                  {artwork.technique}
+                </span>
+              </div>
+
+              <div className="mt-3 text-xs text-orange-600 font-medium">
+                Status: {artwork.status}
+              </div>
+
+              <div className="flex gap-3 mt-4">
                 <button
-                  onClick={() => updateStatus(art.id, "published")}
-                  className="px-3 py-1 border rounded hover:opacity-80"
+                  onClick={() => publishArtwork(artwork.id)}
+                  className="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition"
                 >
                   Publish
                 </button>
 
                 <button
-                  onClick={() => updateStatus(art.id, "rejected")}
-                  className="px-3 py-1 border rounded hover:opacity-80"
+                  onClick={() => rejectArtwork(artwork.id)}
+                  className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
                 >
                   Reject
                 </button>
