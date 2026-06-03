@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { artworks } from "../data/Artworks";
 import { artists } from "../data/Artists";
@@ -21,8 +21,8 @@ export default function ArtworkDetailPage() {
   );
 
   return (
-    <div className="py-10 space-y-8">
-      <div className="overflow-hidden rounded-[24px] border border-[var(--color-border)]">
+    <div className="max-w-5xl mx-auto py-10 space-y-8">
+      <div className="overflow-hidden rounded-3xl border shadow-sm">
         <img
           src={artwork.imageUrl}
           alt={artwork.title}
@@ -31,7 +31,7 @@ export default function ArtworkDetailPage() {
         />
       </div>
 
-      <div>
+      <div className="rounded-3xl border p-6 shadow-sm">
         <h1 className="text-4xl font-semibold">{artwork.title}</h1>
 
         {artist && (
@@ -67,7 +67,7 @@ export default function ArtworkDetailPage() {
       </div>
 
       {artist && (
-        <div className="rounded-3xl border p-6">
+        <div className="rounded-3xl border p-6 shadow-sm">
           <h2 className="text-2xl font-semibold mb-4">
             About the Artist
           </h2>
@@ -81,6 +81,15 @@ export default function ArtworkDetailPage() {
           <p>{artist.bio}</p>
         </div>
       )}
+
+      <div>
+        <Link
+          to="/gallery"
+          className="inline-flex rounded-xl border px-4 py-2 transition hover:opacity-80"
+        >
+          Back to Gallery
+        </Link>
+      </div>
     </div>
   );
 }
