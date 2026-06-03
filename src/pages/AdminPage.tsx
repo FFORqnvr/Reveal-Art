@@ -5,6 +5,7 @@ import type { Artwork } from "../data/Artworks";
 
 export default function AdminPage() {
   const [artworks, setArtworks] = useState<Artwork[]>(mockArtworks);
+  const [message, setMessage] = useState<string | null>(null);
 
   const pendingArtworks = artworks.filter(
     (artwork) => artwork.status === "pending"
@@ -13,29 +14,37 @@ export default function AdminPage() {
   const publishArtwork = (id: string) => {
     setArtworks((prev) =>
       prev.map((artwork) =>
-        artwork.id === id
-          ? { ...artwork, status: "published" }
-          : artwork
+        artwork.id === id ? { ...artwork, status: "published" } : artwork
       )
     );
+
+    setMessage("Artwork published successfully");
+    setTimeout(() => setMessage(null), 2000);
   };
 
   const rejectArtwork = (id: string) => {
     setArtworks((prev) =>
       prev.map((artwork) =>
-        artwork.id === id
-          ? { ...artwork, status: "rejected" }
-          : artwork
+        artwork.id === id ? { ...artwork, status: "rejected" } : artwork
       )
     );
+
+    setMessage("Artwork rejected");
+    setTimeout(() => setMessage(null), 2000);
   };
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       <PageTitle
         title="Admin Moderation"
-        subtitle="Review submitted artworks (mock mode, no backend)"
+        subtitle="Review artworks (mock admin panel without backend)"
       />
+
+      {message && (
+        <div className="mt-4 p-4 rounded-xl border bg-blue-50 text-blue-700">
+          {message}
+        </div>
+      )}
 
       <div className="mt-6 space-y-4">
         {pendingArtworks.length === 0 ? (
