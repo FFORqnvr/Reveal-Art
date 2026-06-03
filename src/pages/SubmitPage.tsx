@@ -32,7 +32,6 @@ export default function SubmitPage() {
 
   const [errors, setErrors] = useState<Errors>({});
   const [preview, setPreview] = useState<string | null>(null);
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -89,7 +88,6 @@ export default function SubmitPage() {
     setIsSubmitting(true);
     setSuccess(false);
 
-    // имитация запроса на backend
     await new Promise((res) => setTimeout(res, 1000));
 
     console.log("PENDING ARTWORK:", {
@@ -115,74 +113,73 @@ export default function SubmitPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-8">
+    <div className="max-w-3xl mx-auto py-10">
       <PageTitle
         title="Submit Artwork"
         subtitle="Send your artwork for moderation"
       />
 
       {success && (
-        <div className="mt-4 p-4 rounded-xl border bg-green-50 text-green-700">
+        <div className="mt-6 p-4 rounded-xl border border-green-200 bg-green-50 text-green-700">
           Artwork successfully submitted for review. It will appear in the gallery after approval.
         </div>
       )}
 
-      <form
-        onSubmit={handleSubmit}
-        className="mt-6 rounded-[14px] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4"
-      >
-        <Input name="title" placeholder="Title" value={form.title} onChange={handleChange} />
-        {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
+      <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-6">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <Input name="title" placeholder="Title" value={form.title} onChange={handleChange} />
+          {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
 
-        <Textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} />
-        {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
+          <Textarea name="description" placeholder="Description" value={form.description} onChange={handleChange} />
+          {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
 
-        <Input name="artistName" placeholder="Artist name" value={form.artistName} onChange={handleChange} />
-        {errors.artistName && <p className="text-red-500 text-sm">{errors.artistName}</p>}
+          <Input name="artistName" placeholder="Artist name" value={form.artistName} onChange={handleChange} />
+          {errors.artistName && <p className="text-red-500 text-sm">{errors.artistName}</p>}
 
-        <Input name="artistNickname" placeholder="Artist nickname" value={form.artistNickname} onChange={handleChange} />
-        {errors.artistNickname && <p className="text-red-500 text-sm">{errors.artistNickname}</p>}
+          <Input name="artistNickname" placeholder="Artist nickname" value={form.artistNickname} onChange={handleChange} />
+          {errors.artistNickname && <p className="text-red-500 text-sm">{errors.artistNickname}</p>}
 
-        <Select name="category" value={form.category} onChange={handleChange}>
-          <option value="">Category</option>
-          <option value="painting">Painting</option>
-          <option value="digital">Digital</option>
-        </Select>
-        {errors.category && <p className="text-red-500 text-sm">{errors.category}</p>}
+          <Select name="category" value={form.category} onChange={handleChange}>
+            <option value="">Category</option>
+            <option value="painting">Painting</option>
+            <option value="digital">Digital</option>
+          </Select>
+          {errors.category && <p className="text-red-500 text-sm">{errors.category}</p>}
 
-        <Select name="style" value={form.style} onChange={handleChange}>
-          <option value="">Style</option>
-          <option value="modern">Modern</option>
-          <option value="classic">Classic</option>
-        </Select>
-        {errors.style && <p className="text-red-500 text-sm">{errors.style}</p>}
+          <Select name="style" value={form.style} onChange={handleChange}>
+            <option value="">Style</option>
+            <option value="modern">Modern</option>
+            <option value="classic">Classic</option>
+          </Select>
+          {errors.style && <p className="text-red-500 text-sm">{errors.style}</p>}
 
-        <Select name="technique" value={form.technique} onChange={handleChange}>
-          <option value="">Technique</option>
-          <option value="oil">Oil</option>
-          <option value="3d">3D</option>
-        </Select>
-        {errors.technique && <p className="text-red-500 text-sm">{errors.technique}</p>}
+          <Select name="technique" value={form.technique} onChange={handleChange}>
+            <option value="">Technique</option>
+            <option value="oil">Oil</option>
+            <option value="3d">3D</option>
+          </Select>
+          {errors.technique && <p className="text-red-500 text-sm">{errors.technique}</p>}
 
-        <div>
-          <input type="file" accept="image/*" onChange={handleFile} />
-          {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
+          <div>
+            <input type="file" accept="image/*" onChange={handleFile} />
+            {errors.image && <p className="text-red-500 text-sm">{errors.image}</p>}
 
-          {preview && (
-            <div className="mt-3">
-              <img
-                src={preview}
-                alt="Preview"
-                className="w-full max-h-[300px] object-cover rounded-xl border"
-              />
-            </div>
-          )}
-        </div>
+            {preview && (
+              <div className="mt-3">
+                <img
+                  src={preview}
+                  alt="Preview"
+                  className="w-full max-h-[280px] object-cover rounded-xl border"
+                />
+              </div>
+            )}
+          </div>
 
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit artwork"}
-        </Button>
-      </form>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit artwork"}
+          </Button>
+        </form>
+      </div>
     </div>
   );
 }
