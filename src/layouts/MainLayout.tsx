@@ -15,10 +15,10 @@ export default function MainLayout() {
       <Header />
 
       <main className="flex-1">
-        <div className="mx-auto max-w-[1200px] px-4 md:px-6">
-          <Outlet />
-        </div>
-      </main>
+  <div className="container">
+    <Outlet />
+  </div>
+</main>
 
       <Footer />
     </div>
