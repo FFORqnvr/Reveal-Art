@@ -47,3 +47,6 @@
   --shadow-md: 0 4px 12px rgba(90, 63, 55, 0.12);
   --shadow-lg: 0 8px 24px rgba(90, 63, 55, 0.16);
 }
+a:hover {
+  color: var(--color-primary-hover);
+}

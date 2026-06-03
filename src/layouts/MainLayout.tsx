@@ -1,28 +1,26 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function MainLayout() {
   return (
-    <div>
-      {/* Header */}
-      <header
-        style={{
-          padding: "16px",
-          borderBottom: "1px solid #C7A99F",
-          display: "flex",
-          gap: "12px",
-        }}
-      >
-        <Link to="/">Home</Link>
-        <Link to="/gallery">Gallery</Link>
-        <Link to="/submit">Submit</Link>
-        <Link to="/admin">Admin</Link>
-        <Link to="/ideas">Ideas</Link>
-      </header>
+    <div
+      className="min-h-screen flex flex-col"
+      style={{
+        backgroundColor: "var(--color-background)",
+        color: "var(--color-text-primary)",
+      }}
+    >
+      <Header />
 
-      {/* Page content */}
-      <main style={{ padding: "16px" }}>
-        <Outlet />
+      <main className="flex-1">
+        <div className="mx-auto max-w-[1200px] px-4 md:px-6">
+          <Outlet />
+        </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
