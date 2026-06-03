@@ -1,5 +1,9 @@
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
+import Input from "../components/Input";
+import Textarea from "../components/Textarea";
+import Select from "../components/Select";
+import Button from "../components/Button";
 
 type FormState = {
   title: string;
@@ -72,52 +76,63 @@ export default function SubmitPage() {
         onSubmit={handleSubmit}
         className="mt-6 rounded-[14px] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 space-y-4"
       >
-        <input type="text" name="title" placeholder="Title" value={form.title} onChange={handleChange} />
+        <Input
+          name="title"
+          placeholder="Title"
+          value={form.title}
+          onChange={handleChange}
+        />
 
-        <textarea
+        <Textarea
           name="description"
           placeholder="Description"
           value={form.description}
           onChange={handleChange}
         />
 
-        <input
-          type="text"
+        <Input
           name="artistName"
           placeholder="Artist name"
           value={form.artistName}
           onChange={handleChange}
         />
 
-        <input
-          type="text"
+        <Input
           name="artistNickname"
           placeholder="Artist nickname"
           value={form.artistNickname}
           onChange={handleChange}
         />
 
-        <select name="category" value={form.category} onChange={handleChange}>
+        <Select
+          name="category"
+          value={form.category}
+          onChange={handleChange}
+        >
           <option value="">Category</option>
           <option value="painting">Painting</option>
           <option value="digital">Digital</option>
-        </select>
+        </Select>
 
-        <select name="style" value={form.style} onChange={handleChange}>
+        <Select name="style" value={form.style} onChange={handleChange}>
           <option value="">Style</option>
           <option value="modern">Modern</option>
           <option value="classic">Classic</option>
-        </select>
+        </Select>
 
-        <select name="technique" value={form.technique} onChange={handleChange}>
+        <Select
+          name="technique"
+          value={form.technique}
+          onChange={handleChange}
+        >
           <option value="">Technique</option>
           <option value="oil">Oil</option>
           <option value="3d">3D</option>
-        </select>
+        </Select>
 
         <input type="file" accept="image/*" onChange={handleFile} />
 
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit artwork</Button>
       </form>
     </div>
   );
