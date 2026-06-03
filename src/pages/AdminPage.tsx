@@ -41,41 +41,45 @@ export default function AdminPage() {
       />
 
       {message && (
-        <div className="mt-4 p-4 rounded-xl border border-blue-200 bg-blue-50 text-blue-700">
+        <div className="mt-4 p-3 sm:p-4 rounded-xl border border-blue-200 bg-blue-50 text-blue-700 text-sm sm:text-base">
           {message}
         </div>
       )}
 
       <div className="mt-6 space-y-4">
         {pendingArtworks.length === 0 ? (
-          <div className="p-10 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
+          <div className="p-8 sm:p-10 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center">
             <div className="text-lg font-semibold mb-2">
               🎉 All caught up!
             </div>
             <div className="text-sm opacity-70">
-              There are no pending artworks to review. Everything has been processed.
+              There are no pending artworks to review.
             </div>
           </div>
         ) : (
           pendingArtworks.map((artwork) => (
             <div
               key={artwork.id}
-              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-5 transition hover:shadow-md"
+              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-4 sm:p-5 transition hover:shadow-md"
             >
               <img
                 src={artwork.imageUrl}
                 alt={artwork.title}
-                className="w-full max-h-[300px] object-cover rounded-xl border"
+                className="w-full max-h-[260px] sm:max-h-[320px] object-cover rounded-xl border"
               />
 
               <div className="mt-4">
-                <h3 className="text-lg font-semibold">{artwork.title}</h3>
+                <h3 className="text-base sm:text-lg font-semibold">
+                  {artwork.title}
+                </h3>
                 <p className="text-sm opacity-70">
                   {artwork.artistName} (@{artwork.artistNickname})
                 </p>
               </div>
 
-              <p className="mt-3 text-sm">{artwork.description}</p>
+              <p className="mt-3 text-sm line-clamp-3">
+                {artwork.description}
+              </p>
 
               <div className="flex flex-wrap gap-2 mt-3 text-xs">
                 <span className="px-2 py-1 rounded bg-gray-100">
@@ -93,17 +97,17 @@ export default function AdminPage() {
                 Status: {artwork.status}
               </div>
 
-              <div className="flex gap-3 mt-4">
+              <div className="flex flex-col sm:flex-row gap-3 mt-4">
                 <button
                   onClick={() => publishArtwork(artwork.id)}
-                  className="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition"
+                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition"
                 >
                   Publish
                 </button>
 
                 <button
                   onClick={() => rejectArtwork(artwork.id)}
-                  className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
+                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition"
                 >
                   Reject
                 </button>
