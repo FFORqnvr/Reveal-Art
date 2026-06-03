@@ -113,7 +113,7 @@ export default function SubmitPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-10">
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
       <PageTitle
         title="Submit Artwork"
         subtitle="Send your artwork for moderation"
@@ -125,8 +125,8 @@ export default function SubmitPage() {
         </div>
       )}
 
-      <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-6">
-        <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-4 sm:p-6">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <Input name="title" placeholder="Title" value={form.title} onChange={handleChange} />
           {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
 
@@ -175,7 +175,7 @@ export default function SubmitPage() {
             )}
           </div>
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={isSubmitting} className="w-full">
             {isSubmitting ? "Submitting..." : "Submit artwork"}
           </Button>
         </form>
