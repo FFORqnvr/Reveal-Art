@@ -1,4 +1,4 @@
-import type { Artwork } from "../Data/Artwork";
+import type { Artwork } from "../types/Artwork";
 
 type Props = {
   art: Artwork;

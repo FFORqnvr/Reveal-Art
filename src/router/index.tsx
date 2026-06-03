@@ -7,12 +7,17 @@ import GalleryPage from "../pages/GalleryPage";
 import SubmitPage from "../pages/SubmitPage";
 import AdminPage from "../pages/AdminPage";
 import IdeasPage from "../pages/IdeasPage";
+import ArtworkDetailPage from "../pages/ArtworkDetailPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
+      {
+  path: "artwork/:id",
+  element: <ArtworkDetailPage />,
+},
       {
         index: true,
         element: <HomePage />,
