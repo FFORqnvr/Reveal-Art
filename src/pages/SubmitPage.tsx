@@ -31,8 +31,10 @@ export default function SubmitPage() {
   });
 
   const [errors, setErrors] = useState<Errors>({});
-
   const [preview, setPreview] = useState<string | null>(null);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const validate = (): boolean => {
     const newErrors: Errors = {};
@@ -78,13 +80,22 @@ export default function SubmitPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const isValid = validate();
     if (!isValid) return;
 
-    console.log("SUBMIT:", form);
+    setIsSubmitting(true);
+    setSuccess(false);
+
+    // имитация запроса на backend
+    await new Promise((res) => setTimeout(res, 1000));
+
+    console.log("PENDING ARTWORK:", {
+      ...form,
+      status: "pending",
+    });
 
     setForm({
       title: "",
@@ -99,6 +110,8 @@ export default function SubmitPage() {
 
     setPreview(null);
     setErrors({});
+    setIsSubmitting(false);
+    setSuccess(true);
   };
 
   return (
@@ -107,6 +120,12 @@ export default function SubmitPage() {
         title="Submit Artwork"
         subtitle="Send your artwork for moderation"
       />
+
+      {success && (
+        <div className="mt-4 p-4 rounded-xl border bg-green-50 text-green-700">
+          Artwork successfully submitted for review. It will appear in the gallery after approval.
+        </div>
+      )}
 
       <form
         onSubmit={handleSubmit}
@@ -160,7 +179,9 @@ export default function SubmitPage() {
           )}
         </div>
 
-        <Button type="submit">Submit artwork</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Submit artwork"}
+        </Button>
       </form>
     </div>
   );
