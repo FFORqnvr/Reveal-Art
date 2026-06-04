@@ -3,10 +3,7 @@ import Textarea from "../../components/Textarea";
 import Select from "../../components/Select";
 import Button from "../../components/Button";
 import ImageUploadField from "./ImageUploadField";
-import type {
-  SubmitFormErrors,
-  SubmitFormState,
-} from "../../types/submit";
+import type { SubmitFormErrors, SubmitFormState } from "../../types/submit";
 
 type SubmitArtworkFormProps = {
   form: SubmitFormState;
@@ -20,9 +17,7 @@ type SubmitArtworkFormProps = {
       | React.ChangeEvent<HTMLTextAreaElement>
       | React.ChangeEvent<HTMLSelectElement>,
   ) => void;
-  onFileChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => void;
+  onFileChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export default function SubmitArtworkForm({
@@ -35,124 +30,164 @@ export default function SubmitArtworkForm({
   onFileChange,
 }: SubmitArtworkFormProps) {
   return (
-    <form
-      className="space-y-5"
-      onSubmit={onSubmit}
-    >
-      <Input
-        name="title"
-        placeholder="Title"
-        value={form.title}
-        onChange={onChange}
-      />
+    <form className="space-y-8" onSubmit={onSubmit}>
+      <div className="grid gap-5 md:grid-cols-2">
+        <div className="space-y-2">
+          <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            Назва роботи
+          </label>
 
-      {errors.title && (
-        <p className="text-sm text-red-500">
-          {errors.title}
-        </p>
-      )}
+          <Input
+            name="title"
+            placeholder="Наприклад: Silent Garden"
+            value={form.title}
+            onChange={onChange}
+          />
 
-      <Textarea
-        name="description"
-        placeholder="Description"
-        value={form.description}
-        onChange={onChange}
-      />
+          {errors.title && (
+            <p className="text-sm text-[var(--color-danger)]">
+              {errors.title}
+            </p>
+          )}
+        </div>
 
-      {errors.description && (
-        <p className="text-sm text-red-500">
-          {errors.description}
-        </p>
-      )}
+        <div className="space-y-2">
+          <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            Ім’я автора
+          </label>
 
-      <Input
-        name="artistName"
-        placeholder="Artist name"
-        value={form.artistName}
-        onChange={onChange}
-      />
+          <Input
+            name="artistName"
+            placeholder="Ваше ім’я"
+            value={form.artistName}
+            onChange={onChange}
+          />
 
-      {errors.artistName && (
-        <p className="text-sm text-red-500">
-          {errors.artistName}
-        </p>
-      )}
+          {errors.artistName && (
+            <p className="text-sm text-[var(--color-danger)]">
+              {errors.artistName}
+            </p>
+          )}
+        </div>
+      </div>
 
-      <Input
-        name="artistNickname"
-        placeholder="Artist nickname"
-        value={form.artistNickname}
-        onChange={onChange}
-      />
+      <div className="space-y-2">
+        <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+          Опис роботи
+        </label>
 
-      {errors.artistNickname && (
-        <p className="text-sm text-red-500">
-          {errors.artistNickname}
-        </p>
-      )}
+        <Textarea
+          name="description"
+          placeholder="Коротко опишіть ідею, настрій або історію роботи"
+          value={form.description}
+          onChange={onChange}
+        />
 
-      <Select
-        name="category"
-        value={form.category}
-        onChange={onChange}
-      >
-        <option value="">Category</option>
-        <option value="painting">Painting</option>
-        <option value="digital">Digital</option>
-      </Select>
+        {errors.description && (
+          <p className="text-sm text-[var(--color-danger)]">
+            {errors.description}
+          </p>
+        )}
+      </div>
 
-      {errors.category && (
-        <p className="text-sm text-red-500">
-          {errors.category}
-        </p>
-      )}
+      <div className="space-y-2">
+        <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+          Нікнейм автора
+        </label>
 
-      <Select
-        name="style"
-        value={form.style}
-        onChange={onChange}
-      >
-        <option value="">Style</option>
-        <option value="modern">Modern</option>
-        <option value="classic">Classic</option>
-      </Select>
+        <Input
+          name="artistNickname"
+          placeholder="Наприклад: art_muse"
+          value={form.artistNickname}
+          onChange={onChange}
+        />
 
-      {errors.style && (
-        <p className="text-sm text-red-500">
-          {errors.style}
-        </p>
-      )}
+        {errors.artistNickname && (
+          <p className="text-sm text-[var(--color-danger)]">
+            {errors.artistNickname}
+          </p>
+        )}
+      </div>
 
-      <Select
-        name="technique"
-        value={form.technique}
-        onChange={onChange}
-      >
-        <option value="">Technique</option>
-        <option value="oil">Oil</option>
-        <option value="3d">3D</option>
-      </Select>
+      <div className="grid gap-5 md:grid-cols-3">
+        <div className="space-y-2">
+          <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            Категорія
+          </label>
 
-      {errors.technique && (
-        <p className="text-sm text-red-500">
-          {errors.technique}
-        </p>
-      )}
+          <Select name="category" value={form.category} onChange={onChange}>
+            <option value="">Оберіть категорію</option>
+            <option value="painting">Painting</option>
+            <option value="digital">Digital</option>
+          </Select>
 
-      <ImageUploadField
-        preview={preview}
-        error={errors.image}
-        onChange={onFileChange}
-      />
+          {errors.category && (
+            <p className="text-sm text-[var(--color-danger)]">
+              {errors.category}
+            </p>
+          )}
+        </div>
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full"
-      >
-        {isSubmitting
-          ? "Submitting..."
-          : "Submit artwork"}
+        <div className="space-y-2">
+          <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            Стиль
+          </label>
+
+          <Select name="style" value={form.style} onChange={onChange}>
+            <option value="">Оберіть стиль</option>
+            <option value="modern">Modern</option>
+            <option value="classic">Classic</option>
+          </Select>
+
+          {errors.style && (
+            <p className="text-sm text-[var(--color-danger)]">
+              {errors.style}
+            </p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">
+            Техніка
+          </label>
+
+          <Select name="technique" value={form.technique} onChange={onChange}>
+            <option value="">Оберіть техніку</option>
+            <option value="oil">Oil</option>
+            <option value="3d">3D</option>
+          </Select>
+
+          {errors.technique && (
+            <p className="text-sm text-[var(--color-danger)]">
+              {errors.technique}
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div className="rounded-[24px] border border-dashed border-[var(--color-primary)]/60 bg-[var(--color-surface)]/45 p-5">
+        <div className="mb-4">
+          <p
+            className="text-2xl font-bold text-[var(--color-text-primary)]"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Зображення роботи
+          </p>
+
+          <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
+            Натисніть кнопку нижче, щоб вибрати файл з комп’ютера.
+          </p>
+        </div>
+
+        <ImageUploadField
+          preview={preview}
+          error={errors.image}
+          onChange={onFileChange}
+        />
+      </div>
+
+      <Button type="submit" disabled={isSubmitting} className="w-full">
+        {isSubmitting ? "Відправляємо..." : "Відправити роботу"}
       </Button>
     </form>
   );

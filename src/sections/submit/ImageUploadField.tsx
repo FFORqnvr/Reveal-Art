@@ -10,27 +10,32 @@ export default function ImageUploadField({
   onChange,
 }: ImageUploadFieldProps) {
   return (
-    <div>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={onChange}
-      />
+    <div className="space-y-4">
+      <label className="cursor-pointer rounded-xl bg-[var(--color-primary)] px-5 py-2 text-white  " >
+  Обрати файл
 
-      {error && (
-        <p className="text-sm text-red-500">
-          {error}
-        </p>
-      )}
+  <input
+    type="file"
+    accept="image/*"
+    onChange={onChange}
+    className="hidden"
+  />
+</label>
 
       {preview && (
-        <div className="mt-3">
+        <div className=" mt-10 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-sm)]">
           <img
             src={preview}
-            alt="Preview"
-            className="max-h-[280px] w-full rounded-xl border object-cover"
+            alt="Artwork preview"
+            className="max-h-[360px] w-full object-contain p-4"
           />
         </div>
+      )}
+
+      {error && (
+        <p className="text-sm text-[var(--color-danger)]">
+          {error}
+        </p>
       )}
     </div>
   );
