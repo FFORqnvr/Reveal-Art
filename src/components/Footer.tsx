@@ -9,11 +9,11 @@ export default function Footer() {
         borderColor: "var(--color-border)",
       }}
     >
-      <div className="mx-auto max-w-[1200px] px-4 py-8 md:px-6">
+      <div className="mx-auto max-w-[1200px] px-4 py-5 md:px-6">
         <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-          <div>
+         <div className="flex h-full flex-col pt-1">
             <h3
-              className="mb-2 text-lg"
+              className="mb-20 text-xl "
               style={{
                 fontFamily: "var(--font-heading)",
                 color: "var(--color-text-primary)",
@@ -33,11 +33,24 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <Link to="/">Главная</Link>
-            <Link to="/gallery">Галерея</Link>
-            <Link to="/submit">Добавить работу</Link>
-            <Link to="/ideas">Генератор идей</Link>
+          <div className="grid grid-cols-2 ">
+                <Link className="flex items-center" to="/">
+                  Главная
+                </Link>
+
+                <Link className="flex items-center" to="/submit">
+                  Добавить работу
+                </Link>
+
+                <Link className="flex items-center" to="/gallery">
+                  Галерея
+                </Link>
+
+              
+
+                <Link className="flex items-center" to="/ideas">
+                  Генератор идей
+                </Link>
           </div>
         </div>
 
