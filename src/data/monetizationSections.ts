@@ -1,26 +1,87 @@
-export const monetizationSections = [
-  {
-    title: "Sell Original Art",
-    desc: "Sell your original digital or physical artworks directly to collectors.",
-  },
+export type EarningPlatform = {
+  title: string;
+  description: string;
+  tags: string[];
+};
 
-  {
-    title: "Prints",
-    desc: "Create and sell high-quality prints of your artworks.",
-  },
+export type PriceItem = {
+  title: string;
+  price: string;
+};
 
+export const earningPlatforms: EarningPlatform[] = [
   {
-    title: "Commissions",
-    desc: "Take custom requests and create personalized artwork for clients.",
+    title: "Фріланс-платформи",
+    description:
+      "Fiverr, Upwork, Freelancehunt — місця, де клієнти шукають художників для конкретних замовлень.",
+    tags: ["Fiverr", "Upwork", "Freelancehunt"],
   },
+  {
+    title: "Маркетплейси принтів",
+    description:
+      "Завантажуйте свої роботи і отримуйте пасивний дохід з продажу на футболках, чашках, постерах.",
+    tags: ["Redbubble", "Society6", "Displate"],
+  },
+  {
+    title: "Патрон-платформи",
+    description:
+      "Створіть спільноту підтримки — фанати платять за ексклюзивний контент, процес роботи, уроки.",
+    tags: ["Patreon", "Ko-fi", "Boosty"],
+  },
+  {
+    title: "Комісії",
+    description:
+      "Малюйте на замовлення — портрети, персонажі, ілюстрації. Один з найпопулярніших способів заробітку.",
+    tags: ["Twitter/X", "Instagram"],
+  },
+  {
+    title: "Стоки",
+    description:
+      "Продавайте ілюстрації, іконки, патерни на стокових платформах для дизайнерів.",
+    tags: ["Shutterstock", "Adobe Stock"],
+  },
+  {
+    title: "NFT та цифрові товари",
+    description:
+      "Продавайте унікальні цифрові роботи, набори пензлів, текстури, туторіали.",
+    tags: ["Gumroad", "Itch.io", "ArtStation"],
+  },
+];
 
+export const priceItems: PriceItem[] = [
   {
-    title: "Digital Products",
-    desc: "Sell brushes, textures, templates and other digital assets.",
+    title: "Іконка / аватар",
+    price: "10$–30$",
   },
+  {
+    title: "Портрет / бюст",
+    price: "25$–80$",
+  },
+  {
+    title: "Повна фігура",
+    price: "50$–150$",
+  },
+  {
+    title: "Ілюстрація з фоном",
+    price: "80$–300$",
+  },
+  {
+    title: "Обкладинка книги",
+    price: "150$–500$",
+  },
+  {
+    title: "Комерція",
+    price: "50–100%",
+  },
+];
 
-  {
-    title: "Portfolio & Social Media",
-    desc: "Grow audience through platforms like Instagram, ArtStation, Behance.",
-  },
+export const promotionSteps = [
+  "Публікуйте роботи регулярно — алгоритми люблять активність.",
+  "Показуйте процес роботи: таймлапси, WIP, ескізи — це залучає аудиторію.",
+  "Використовуйте хештеги та беріть участь у челенджах: #Inktober, #DrawThisInYourStyle.",
+  "Взаємодійте зі спільнотою — коментуйте, ставте лайки, діліться роботами інших.",
+  "Створіть портфоліо на ArtStation, Behance або власному сайті.",
+  "Не бійтеся ділитися недосконалими роботами — прогрес надихає.",
+  "Визначте свій стиль та нішу — вузька спеціалізація приваблює цільову аудиторію.",
+  "Зробіть зрозумілий прайс-лист — клієнти цінують чіткість і прозорість умов.",
 ];

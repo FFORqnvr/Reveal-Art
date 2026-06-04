@@ -18,7 +18,7 @@ export default function SectionDivider() {
         </svg>
       </div>
 
-      <div className="h-[2px] flex-1 bg-[var(--color-text-primary)]/60" />
+      <div className="h-[2px]    flex-1 bg-[var(--color-text-primary)]/60" />
     </div>
   );
 }
