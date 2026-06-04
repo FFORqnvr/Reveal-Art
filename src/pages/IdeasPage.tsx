@@ -3,6 +3,7 @@ import IdeaGeneratorForm from "../sections/ideas/IdeaGeneratorForm";
 import { ideaOptions } from "../data/IdeaOptions";
 import { generateIdea } from "../utils/generateIdea";
 import InspirationSourcesSection from "../sections/ideas/InspirationSourcesSection";
+import ArtistHabitsSection from "../sections/ideas/ArtistHabitsSection";
 
 const randomItem = (items: string[]) => {
   return items[Math.floor(Math.random() * items.length)];
@@ -57,6 +58,7 @@ export default function IdeasPage() {
         onGenerate={handleGenerateIdea}
       />
       <InspirationSourcesSection />
+      <ArtistHabitsSection />
     </main>
   );
 }
