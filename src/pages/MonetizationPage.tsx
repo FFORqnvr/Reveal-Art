@@ -1,29 +1,7 @@
 import PageTitle from "../components/PageTitle";
+import { monetizationSections } from "../data/monetizationSections";
 
 export default function MonetizationPage() {
-  const sections = [
-    {
-      title: "Sell Original Art",
-      desc: "Sell your original digital or physical artworks directly to collectors.",
-    },
-    {
-      title: "Prints",
-      desc: "Create and sell high-quality prints of your artworks.",
-    },
-    {
-      title: "Commissions",
-      desc: "Take custom requests and create personalized artwork for clients.",
-    },
-    {
-      title: "Digital Products",
-      desc: "Sell brushes, textures, templates and other digital assets.",
-    },
-    {
-      title: "Portfolio & Social Media",
-      desc: "Grow audience through platforms like Instagram, ArtStation, Behance.",
-    },
-  ];
-
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <PageTitle
@@ -32,13 +10,18 @@ export default function MonetizationPage() {
       />
 
       <div className="mt-8 grid gap-6 md:grid-cols-2">
-        {sections.map((item) => (
+        {monetizationSections.map((item) => (
           <div
             key={item.title}
-            className="p-5 border rounded-xl bg-[var(--color-surface)] hover:shadow-md transition"
+            className="rounded-xl border bg-[var(--color-surface)] p-5 transition hover:shadow-md"
           >
-            <div className="text-lg font-semibold">{item.title}</div>
-            <div className="text-sm opacity-80 mt-2">{item.desc}</div>
+            <div className="text-lg font-semibold">
+              {item.title}
+            </div>
+
+            <div className="mt-2 text-sm opacity-80">
+              {item.desc}
+            </div>
           </div>
         ))}
       </div>
