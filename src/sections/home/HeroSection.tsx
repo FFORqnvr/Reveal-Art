@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative min-h-[940px]">
       <div className="relative z-10 mx-auto flex min-h-[560px] max-w-6xl items-center px-4 pt-[280px] md:px-1">
         <div className="max-w-xl border-l border-[var(--color-primary)] pl-8">
-          <h1 className="font-[var(--font-heading)] text-5xl font-bold leading-tight text-[var(--color-text-primary)] md:text-6xl">
+          <h1 className="font-[var(--font-heading)] text-70px font-bold leading-tight text-[var(--color-text-primary)] md:text-70px">
             Вітаємо у світі<br/>цифрової творчості
           </h1>
 

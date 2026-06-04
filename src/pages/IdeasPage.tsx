@@ -4,6 +4,7 @@ import { ideaOptions } from "../data/IdeaOptions";
 import { generateIdea } from "../utils/generateIdea";
 import InspirationSourcesSection from "../sections/ideas/InspirationSourcesSection";
 import ArtistHabitsSection from "../sections/ideas/ArtistHabitsSection";
+import ArtBlockSection from "../sections/ideas/ArtBlockSection";
 
 const randomItem = (items: string[]) => {
   return items[Math.floor(Math.random() * items.length)];
@@ -59,6 +60,7 @@ export default function IdeasPage() {
       />
       <InspirationSourcesSection />
       <ArtistHabitsSection />
+      <ArtBlockSection />
     </main>
   );
 }
