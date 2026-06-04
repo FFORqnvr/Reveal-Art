@@ -74,15 +74,8 @@ export default function IdeasPage() {
   const [error, setError] = useState("");
 
   const generateIdea = () => {
-    if (
-      !theme ||
-      !subject ||
-      !mood ||
-      !palette ||
-      !location ||
-      !detail
-    ) {
-      setError("Please fill in all fields.");
+    if (!theme || !subject || !mood || !palette || !location || !detail) {
+      setError("Please select all parameters before generating an idea.");
       setIdea("");
       return;
     }
@@ -107,22 +100,24 @@ export default function IdeasPage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       <PageTitle
         title="Idea Generator"
-        subtitle="Generate inspiration for your next artwork. Everything works locally without AI APIs."
+        subtitle="Generate inspiration for your next artwork. Works completely locally without AI APIs."
       />
 
       <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
+        <div className="mb-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-4 text-sm opacity-80">
+          Select artwork parameters and generate a creative concept for your next project.
+        </div>
+
         <div className="grid gap-4 md:grid-cols-2">
           <div>
             <label className="mb-2 block text-sm font-medium">
               Theme
             </label>
-
             <Select
               value={theme}
               onChange={(e) => setTheme(e.target.value)}
             >
               <option value="">Select theme</option>
-
               {themes.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -135,13 +130,11 @@ export default function IdeasPage() {
             <label className="mb-2 block text-sm font-medium">
               Subject
             </label>
-
             <Select
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
             >
               <option value="">Select subject</option>
-
               {subjects.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -154,13 +147,11 @@ export default function IdeasPage() {
             <label className="mb-2 block text-sm font-medium">
               Mood
             </label>
-
             <Select
               value={mood}
               onChange={(e) => setMood(e.target.value)}
             >
               <option value="">Select mood</option>
-
               {moods.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -173,13 +164,11 @@ export default function IdeasPage() {
             <label className="mb-2 block text-sm font-medium">
               Palette
             </label>
-
             <Select
               value={palette}
               onChange={(e) => setPalette(e.target.value)}
             >
               <option value="">Select palette</option>
-
               {palettes.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -192,13 +181,11 @@ export default function IdeasPage() {
             <label className="mb-2 block text-sm font-medium">
               Location
             </label>
-
             <Select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             >
               <option value="">Select location</option>
-
               {locations.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -211,13 +198,11 @@ export default function IdeasPage() {
             <label className="mb-2 block text-sm font-medium">
               Detail
             </label>
-
             <Select
               value={detail}
               onChange={(e) => setDetail(e.target.value)}
             >
               <option value="">Select detail</option>
-
               {details.map((item) => (
                 <option key={item} value={item}>
                   {item}
@@ -228,7 +213,7 @@ export default function IdeasPage() {
         </div>
 
         {error && (
-          <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-600">
+          <div className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-600">
             {error}
           </div>
         )}
@@ -240,12 +225,12 @@ export default function IdeasPage() {
         </div>
 
         {idea && (
-          <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
-            <h3 className="text-lg font-semibold">
+          <div className="mt-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-background)] p-6 shadow-sm">
+            <h3 className="text-xl font-semibold">
               Generated Idea
             </h3>
 
-            <p className="mt-4 text-sm leading-7">
+            <p className="mt-4 leading-7">
               {idea}
             </p>
 
@@ -256,27 +241,27 @@ export default function IdeasPage() {
 
               <div className="flex flex-wrap gap-2">
                 <span className="rounded-full border px-3 py-1 text-sm">
-                  Theme: {theme}
+                  {theme}
                 </span>
 
                 <span className="rounded-full border px-3 py-1 text-sm">
-                  Subject: {subject}
+                  {subject}
                 </span>
 
                 <span className="rounded-full border px-3 py-1 text-sm">
-                  Mood: {mood}
+                  {mood}
                 </span>
 
                 <span className="rounded-full border px-3 py-1 text-sm">
-                  Palette: {palette}
+                  {palette}
                 </span>
 
                 <span className="rounded-full border px-3 py-1 text-sm">
-                  Location: {location}
+                  {location}
                 </span>
 
                 <span className="rounded-full border px-3 py-1 text-sm">
-                  Detail: {detail}
+                  {detail}
                 </span>
               </div>
             </div>
