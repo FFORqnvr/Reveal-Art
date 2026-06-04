@@ -1,49 +1,35 @@
-import { createBrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 
 import HomePage from "../pages/HomePage";
 import GalleryPage from "../pages/GalleryPage";
+import IdeasPage from "../pages/IdeasPage";
 import SubmitPage from "../pages/SubmitPage";
 import AdminPage from "../pages/AdminPage";
-import IdeasPage from "../pages/IdeasPage";
 import ArtworkDetailPage from "../pages/ArtworkDetailPage";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-  path: "artwork/:id",
-  element: <ArtworkDetailPage />,
-},
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "gallery",
-        element: <GalleryPage />,
-      },
-      {
-        path: "submit",
-        element: <SubmitPage />,
-      },
-      {
-        path: "admin",
-        element: <AdminPage />,
-      },
-      {
-        path: "ideas",
-        element: <IdeasPage />,
-      },
-      {
-  path: "/ideas",
-  element: <IdeasPage />,
-}
-    ],
-  },
-]);
+import ProcessPage from "../pages/ProcessPage";
+import ToolsPage from "../pages/ToolsPage";
+import MonetizationPage from "../pages/MonetizationPage";
 
-export default router;
+export default function AppRouter() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/ideas" element={<IdeasPage />} />
+          <Route path="/submit" element={<SubmitPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/artwork/:id" element={<ArtworkDetailPage />} />
+
+          <Route path="/process" element={<ProcessPage />} />
+          <Route path="/tools" element={<ToolsPage />} />
+          <Route path="/monetization" element={<MonetizationPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}

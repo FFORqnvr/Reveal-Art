@@ -105,7 +105,7 @@ export default function GalleryPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {published.map((art) => (
-              <ArtworkCard key={art.id} art={art} />
+              <ArtworkCard key={art.id} artwork={art} />
             ))}
           </div>
         )}
