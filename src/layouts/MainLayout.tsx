@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 export default function MainLayout() {
   return (
     <div
-      className="min-h-screen flex flex-col"
+      className="flex min-h-screen flex-col"
       style={{
         backgroundColor: "var(--color-background)",
         color: "var(--color-text-primary)",
@@ -15,10 +15,8 @@ export default function MainLayout() {
       <Header />
 
       <main className="flex-1">
-  <div className="container">
-    <Outlet />
-  </div>
-</main>
+        <Outlet />
+      </main>
 
       <Footer />
     </div>

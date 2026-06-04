@@ -7,7 +7,6 @@ import GalleryPage from "../pages/GalleryPage";
 import IdeasPage from "../pages/IdeasPage";
 import SubmitPage from "../pages/SubmitPage";
 import AdminPage from "../pages/AdminPage";
-import ArtworkDetailPage from "../pages/ArtworkDetailPage";
 
 import ProcessPage from "../pages/ProcessPage";
 import ToolsPage from "../pages/ToolsPage";
@@ -23,7 +22,6 @@ export default function AppRouter() {
           <Route path="/ideas" element={<IdeasPage />} />
           <Route path="/submit" element={<SubmitPage />} />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="/artwork/:id" element={<ArtworkDetailPage />} />
 
           <Route path="/process" element={<ProcessPage />} />
           <Route path="/tools" element={<ToolsPage />} />

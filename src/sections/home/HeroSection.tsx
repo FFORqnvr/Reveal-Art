@@ -1,29 +1,30 @@
 import { Link } from "react-router-dom";
-import PageTitle from "../../components/PageTitle";
-import Button from "../../components/Button"
+import Button from "../../components/Button";
 
 export default function HeroSection() {
   return (
-    <section className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-12 shadow-sm">
-      <div className="max-w-3xl">
-        <PageTitle
-          title="Reveal Art"
-          subtitle="A digital space where artists can share their creations, discover inspiration, and explore artworks from other creators."
-        />
+    <section className="relative min-h-[1075px]">
+      <div className="relative z-10 mx-auto flex min-h-[560px] max-w-6xl items-center px-4 pt-[250px] md:px-8">
+        <div className="max-w-xl border-l border-[var(--color-primary)] pl-8">
+          <h1 className="font-[var(--font-heading)] text-5xl font-bold leading-tight text-[var(--color-text-primary)] md:text-6xl">
+            Вітаємо у світі<br/>цифрової творчості
+          </h1>
 
-        <p className="mt-6 text-base leading-7 opacity-80">
-          Browse a curated gallery, generate creative ideas for future
-          projects, and submit your own artwork for review and publication.
-        </p>
+          <p className="mt-8 text-lg leading-8 text-[var(--color-text-primary)] md:text-xl">
+            Шлях від першого штриха до шедевра не буває легким, але він завжди
+            прекрасний. Ми зібрали для вас есенцію знань, щоб ваш творчий
+            вогонь горів яскравіше, а рука була впевненішою.
+          </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link to="/gallery">
-            <Button>Explore Gallery</Button>
-          </Link>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link to="/tools">
+              <Button>Інструменти</Button>
+            </Link>
 
-          <Link to="/ideas">
-            <Button>Generate Ideas</Button>
-          </Link>
+            <Link to="/ideas">
+              <Button>Генератор ідей</Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

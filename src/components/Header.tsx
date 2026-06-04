@@ -20,7 +20,7 @@ export default function Header() {
   });
 
   return (
-    <header className="sticky top-4 z-50 px-4">
+    <header className="fixed left-0 top-0 z-50 w-full px-4 pt-4">
       <div
         className="relative mx-auto max-w-[1200px] overflow-hidden shadow-md"
         style={{
