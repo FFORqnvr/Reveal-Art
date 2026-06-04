@@ -1,63 +1,94 @@
 import { NavLink } from "react-router-dom";
 
-const links = [
-  { to: "/", label: "Главная" },
+const linksLeft = [
+  { to: "/ideas", label: "Идеи" },
+  { to: "/process", label: "Этапы работы" },
   { to: "/gallery", label: "Галерея" },
-  { to: "/submit", label: "Добавить работу" },
-  { to: "/ideas", label: "Генератор идей" },
-  { to: "/admin", label: "Админка" },
+];
+
+const linksRight = [
+  { to: "/tools", label: "Инструменты" },
+  { to: "/monetization", label: "Заработок" },
 ];
 
 export default function Header() {
+  const navLinkStyle = ({ isActive }: { isActive: boolean }) => ({
+    color: isActive
+      ? "var(--color-background-soft)"
+      : "var(--color-background)",
+    fontWeight: isActive ? 600 : 400,
+  });
+
   return (
-    <header
-      className="sticky top-0 z-50 border-b backdrop-blur-sm"
-      style={{
-        backgroundColor: "var(--color-background-soft)",
-        borderColor: "var(--color-border)",
-      }}
-    >
-      <div className="mx-auto max-w-[1200px] px-4 py-5 md:px-6">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h1
-              className="text-3xl"
-              style={{
-                fontFamily: "var(--font-heading)",
-                color: "var(--color-text-primary)",
-              }}
-            >
-              Reveal Art
-            </h1>
+    <header className="sticky top-4 z-50 px-4">
+      <div
+        className="relative mx-auto max-w-[1200px] overflow-hidden shadow-md"
+        style={{
+          backgroundColor: "var(--color-primary)",
+          border: "1px solid var(--color-border)",
+          borderRadius: "var(--radius-lg)",
+        }}
+      >
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          viewBox="0 0 1200 90"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="
+             M 10 35
+            Q 10 75 90 80
+            L 1110 80
+            Q 1190 75 1190 35
+            "
+            fill="none"
+            stroke="rgba(243,232,223,0.75)"
+            strokeWidth="1.5"
+          />
+        </svg>
 
-            <p
-              className="text-sm"
-              style={{
-                color: "var(--color-text-muted)",
-              }}
-            >
-              Художественная галерея и пространство для вдохновения
-            </p>
-          </div>
-
-          <nav className="flex flex-wrap gap-5">
-            {links.map((link) => (
+        <nav className="relative z-10 flex items-center justify-between px-12 py-5">
+          <div className="flex items-center gap-8">
+            {linksLeft.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="transition-colors duration-200"
-                style={({ isActive }) => ({
-                  color: isActive
-                    ? "var(--color-primary)"
-                    : "var(--color-text-secondary)",
-                  fontWeight: isActive ? 600 : 400,
-                })}
+                className="text-sm transition-opacity duration-200 hover:opacity-80"
+                style={navLinkStyle}
               >
                 {link.label}
               </NavLink>
             ))}
-          </nav>
-        </div>
+          </div>
+
+          <NavLink
+            to="/"
+            className="flex items-center gap-4 uppercase tracking-[0.12em]"
+            style={{
+              color: "var(--color-background-soft)",
+              fontFamily: "var(--font-heading)",
+            }}
+          >
+            <span className="opacity-70">✦ ─</span>
+
+            <span className="text-lg">Reveal Art</span>
+
+            <span className="opacity-70">─ ✦</span>
+          </NavLink>
+
+          <div className="flex items-center gap-8">
+            {linksRight.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className="text-sm transition-opacity duration-200 hover:opacity-80"
+                style={navLinkStyle}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+          </div>
+        </nav>
       </div>
     </header>
   );
