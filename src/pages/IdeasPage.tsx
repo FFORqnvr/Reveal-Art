@@ -2,6 +2,7 @@ import { useState } from "react";
 import IdeaGeneratorForm from "../sections/ideas/IdeaGeneratorForm";
 import { ideaOptions } from "../data/IdeaOptions";
 import { generateIdea } from "../utils/generateIdea";
+import InspirationSourcesSection from "../sections/ideas/InspirationSourcesSection";
 
 const randomItem = (items: string[]) => {
   return items[Math.floor(Math.random() * items.length)];
@@ -55,6 +56,7 @@ export default function IdeasPage() {
         idea={idea}
         onGenerate={handleGenerateIdea}
       />
+      <InspirationSourcesSection />
     </main>
   );
 }
