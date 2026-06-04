@@ -1,7 +1,7 @@
 :root {
   /* Backgrounds */
   --color-background: #D1C0B9;
-  --color-background-soft: #F3E8DF;
+  --color-background-soft: #F3E8DF ; 
 
   /* Surfaces */
   --color-surface: #D8BFB2;
@@ -12,6 +12,7 @@
   --color-text-primary: #5A3F37;
   --color-text-secondary: #7A5A50;
   --color-text-muted: #A07C72;
+  --color-text-card: #fffcea; 
 
   /* Borders */
   --color-border: #C7A99F;

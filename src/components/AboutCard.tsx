@@ -27,18 +27,18 @@ export default function AboutCard({
       <div className="absolute inset-0 bg-[var(--color-primary)]/35" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
 
-      <div className="relative z-10 flex h-full min-h-[200px] flex-col justify-end p-6 text-[var(--color-background-soft)]">
-        <h3
-          className="text-2xl font-bold"
-          style={{ fontFamily: "var(--font-heading)" }}
-        >
-          {title}
-        </h3>
+     <div className="relative z-10 flex h-full min-h-[200px] flex-col justify-end p-6">
+  <h3
+    className="text-2xl font-bold !text-white"
+    style={{ fontFamily: "var(--font-heading)" }}
+  >
+    {title}
+  </h3>
 
-        <p className="mt-2 text-sm leading-6 opacity-90">
-          {desc}
-        </p>
-      </div>
+  <p className="mt-2 text-sm leading-6 !text-[var(--color-text-card)] opacity-90">
+    {desc}
+  </p>
+</div>
     </Link>
   );
 }
