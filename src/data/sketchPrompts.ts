@@ -5,24 +5,20 @@ export type SketchPrompt = {
 
 export const sketchPrompts: SketchPrompt[] = [
   {
-    title: "Рука художника",
-    image: "/images/process/sketch-hand.png",
+    title: "",
+    image: "/images/process/training-1.png",
   },
   {
-    title: "Силует людини",
-    image: "/images/process/sketch-person.png",
+    title: "",
+    image: "/images/process/training-2.png",
   },
   {
-    title: "Квітка",
-    image: "/images/process/sketch-flower.png",
+    title: "",
+    image: "/images/process/training-3.png",
   },
   {
-    title: "Старе дерево",
-    image: "/images/process/sketch-tree.png",
-  },
-  {
-    title: "Чашка на столі",
-    image: "/images/process/sketch-cup.png",
+    title: "",
+    image: "/images/process/training-4.png",
   },
 ];
 

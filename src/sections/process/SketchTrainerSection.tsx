@@ -88,7 +88,7 @@ export default function SketchTrainerSection() {
             <button
               type="button"
               onClick={handleStart}
-              className="rounded-lg bg-[var(--color-background-soft)] px-3 py-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
+              className="rounded-full bg-[var(--color-background-soft)] px-3 py-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
             >
               Старт
             </button>
@@ -96,7 +96,7 @@ export default function SketchTrainerSection() {
             <button
               type="button"
               onClick={handlePause}
-              className="rounded-lg bg-[var(--color-background-soft)] px-3 py-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
+              className="rounded-full bg-[var(--color-background-soft)] px-3 py-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
             >
               Пауза
             </button>
@@ -104,14 +104,14 @@ export default function SketchTrainerSection() {
             <button
               type="button"
               onClick={handleReset}
-              className="rounded-lg bg-[var(--color-background-soft)] px-3 py-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
+              className="rounded-full bg-[var(--color-background-soft)] px-3 py-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
             >
               Скинути
             </button>
           </div>
 
           <div className="grid grid-cols-2 gap-2">
-            <label className="rounded-xl bg-[var(--color-background-soft)] p-4 text-center shadow-[var(--shadow-sm)]">
+            <label className="rounded-2xl bg-[var(--color-background-soft)] p-4 text-center shadow-[var(--shadow-sm)]">
               <input
                 type="number"
                 min="0"
@@ -124,7 +124,7 @@ export default function SketchTrainerSection() {
               </span>
             </label>
 
-            <label className="rounded-xl bg-[var(--color-background-soft)] p-4 text-center shadow-[var(--shadow-sm)]">
+            <label className="rounded-2xl bg-[var(--color-background-soft)] p-4 text-center shadow-[var(--shadow-sm)]">
               <input
                 type="number"
                 min="0"
@@ -142,27 +142,29 @@ export default function SketchTrainerSection() {
           <button
             type="button"
             onClick={handleSetTime}
-            className="w-full rounded-xl bg-[var(--color-background-soft)] px-5 py-3 font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
+            className="w-full rounded-full bg-[var(--color-background-soft)] px-5 py-3 font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface)]"
           >
             Встановити час
           </button>
         </div>
 
         <div>
-          <div className="flex min-h-[360px] items-center justify-center overflow-hidden rounded-2xl border-4 border-[var(--color-accent)] bg-[var(--color-background-soft)] shadow-[var(--shadow-md)]">
+          <div className="flex min-h-[360px] items-center justify-center">
             {isImageVisible ? (
               <img
                 src={currentPrompt.image}
                 alt={currentPrompt.title}
-                className="h-full max-h-[360px] w-full object-contain p-6"
+                className="max-h-[360px] max-w-full rounded-3xl object-contain shadow-[var(--shadow-md)]"
               />
             ) : (
-              <p
-                className="px-6 text-center text-3xl font-bold text-[var(--color-text-muted)]"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                Час вийшов
-              </p>
+              <div className="flex min-h-[360px] w-full items-center justify-center rounded-3xl border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-md)]">
+                <p
+                  className="px-6 text-center text-3xl font-bold text-[var(--color-text-muted)]"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  Час вийшов
+                </p>
+              </div>
             )}
           </div>
 
@@ -170,7 +172,7 @@ export default function SketchTrainerSection() {
             <button
               type="button"
               onClick={handleGeneratePrompt}
-              className="rounded-xl bg-[var(--color-background-soft)] px-10 py-3 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-text-primary)] shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-surface)]"
+              className="rounded-full bg-[var(--color-background-soft)] px-10 py-3 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-text-primary)] shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-surface)]"
             >
               Генерувати ціль
             </button>
