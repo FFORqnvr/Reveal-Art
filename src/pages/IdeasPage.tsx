@@ -240,14 +240,52 @@ export default function IdeasPage() {
         </div>
 
         {idea && (
-          <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-white p-5">
-            <h3 className="font-semibold">
+          <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
+            <h3 className="text-lg font-semibold">
               Generated Idea
             </h3>
 
-            <p className="mt-3 text-sm leading-7">
+            <p className="mt-4 text-sm leading-7">
               {idea}
             </p>
+
+            <div className="mt-6">
+              <h4 className="mb-3 text-sm font-medium">
+                Selected Parameters
+              </h4>
+
+              <div className="flex flex-wrap gap-2">
+                <span className="rounded-full border px-3 py-1 text-sm">
+                  Theme: {theme}
+                </span>
+
+                <span className="rounded-full border px-3 py-1 text-sm">
+                  Subject: {subject}
+                </span>
+
+                <span className="rounded-full border px-3 py-1 text-sm">
+                  Mood: {mood}
+                </span>
+
+                <span className="rounded-full border px-3 py-1 text-sm">
+                  Palette: {palette}
+                </span>
+
+                <span className="rounded-full border px-3 py-1 text-sm">
+                  Location: {location}
+                </span>
+
+                <span className="rounded-full border px-3 py-1 text-sm">
+                  Detail: {detail}
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <Button onClick={generateIdea}>
+                Generate Another Idea
+              </Button>
+            </div>
           </div>
         )}
       </div>
