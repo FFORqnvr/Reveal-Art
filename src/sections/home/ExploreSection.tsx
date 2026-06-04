@@ -1,60 +1,43 @@
-import { Link } from "react-router-dom";
-import Button from "../../components/Button";
-
 export default function ExploreSection() {
   return (
-    <section className="mt-10">
-      <h2 className="text-2xl font-semibold">
-        Explore Reveal Art
-      </h2>
+    <section className="py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="relative flex items-center justify-center">
+          <div className="h-px flex-1 bg-[var(--color-text-primary)]/60" />
 
-      <div className="mt-6 grid gap-6 md:grid-cols-3">
-        <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1">
-          <h3 className="text-lg font-semibold">
-            Gallery
-          </h3>
-
-          <p className="mt-3 text-sm leading-6 opacity-80">
-            Discover published artworks from artists and explore the growing collection.
-          </p>
-
-          <div className="mt-5">
-            <Link to="/gallery">
-              <Button>Open Gallery</Button>
-            </Link>
+          <div className="mx-10 text-[var(--color-text-primary)]">
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21 0L23 18L42 21L23 24L21 42L19 24L0 21L19 18L21 0Z"
+                fill="currentColor"
+              />
+            </svg>
           </div>
+
+          <div className="h-px flex-1 bg-[var(--color-text-primary)]/60" />
         </div>
 
-        <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1">
-          <h3 className="text-lg font-semibold">
-            Idea Generator
-          </h3>
+        <div className="mx-auto mt-12 max-w-4xl text-center">
+          <blockquote
+            className="text-4xl leading-relaxed text-[var(--color-text-primary)] md:text-5xl"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Кожен майстер колись був початківцем. Кожен професіонал колись був
+            аматором. Кожен великий шлях починається з першого кроку.
+          </blockquote>
 
-          <p className="mt-3 text-sm leading-6 opacity-80">
-            Generate concepts and creative prompts for your next artwork.
+          <p
+            className="mt-10 text-3xl text-[var(--color-accent)]"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            — Хелен Хейз
           </p>
-
-          <div className="mt-5">
-            <Link to="/ideas">
-              <Button>Generate Ideas</Button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1">
-          <h3 className="text-lg font-semibold">
-            Submit Artwork
-          </h3>
-
-          <p className="mt-3 text-sm leading-6 opacity-80">
-            Send your artwork for moderation and future publication in the gallery.
-          </p>
-
-          <div className="mt-5">
-            <Link to="/submit">
-              <Button>Submit Work</Button>
-            </Link>
-          </div>
         </div>
       </div>
     </section>
