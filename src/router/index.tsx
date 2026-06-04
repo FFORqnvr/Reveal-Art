@@ -38,6 +38,10 @@ const router = createBrowserRouter([
         path: "ideas",
         element: <IdeasPage />,
       },
+      {
+  path: "/ideas",
+  element: <IdeasPage />,
+}
     ],
   },
 ]);
