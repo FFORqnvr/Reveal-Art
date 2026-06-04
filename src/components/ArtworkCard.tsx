@@ -14,36 +14,41 @@ export default function ArtworkCard({ artwork }: Props) {
 
   if (!hasImage) {
     console.warn(
-      `ArtworkCard: missing imageUrl for artwork id=${artwork.id}, title="${artwork.title}"`
+      `ArtworkCard: missing imageUrl for artwork id=${artwork.id}, title="${artwork.title}"`,
     );
   }
 
   return (
-    <div className="overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[var(--color-surface)] transition duration-200 hover:scale-[1.02]">
+    <article className="mx-auto w-full max-w-[280px]   overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-md)] ">
       {hasImage ? (
         <img
           src={artwork.imageUrl}
           alt={artwork.title}
           loading="lazy"
-          className="h-48 w-full object-cover"
+          className="aspect-[4/5] w-full object-cover"
         />
       ) : (
-        <div className="flex h-48 w-full items-center justify-center bg-gray-100 text-sm text-gray-500">
+        <div className="flex aspect-[4/5] w-full items-center justify-center bg-[var(--color-surface)] text-sm text-[var(--color-text-muted)]">
           Изображение не найдено
         </div>
       )}
 
-      <div className="p-4">
-        <div className="font-medium">{artwork.title}</div>
+      <div className="p-3">
+        <h3
+          className="text-base font-bold text-[var(--color-text-primary)]"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          {artwork.title}
+        </h3>
 
-        <div className="text-sm opacity-70">
+        <p className="mt-1 text-xs text-[var(--color-text-secondary)]">
           {artwork.artistName} (@{artwork.artistNickname})
-        </div>
+        </p>
 
-        <div className="mt-2 text-xs opacity-50">
+        <p className="mt-2 text-[10px] uppercase tracking-[0.12em] text-[var(--color-text-muted)]">
           {artwork.category} • {artwork.style} • {artwork.technique}
-        </div>
+        </p>
       </div>
-    </div>
+    </article>
   );
 }
