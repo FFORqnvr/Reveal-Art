@@ -1,7 +1,3 @@
-import Select from "../../components/Select";
-import Button from "../../components/Button";
-import { ideaOptions } from "../../data/IdeaOptions";
-
 type IdeaGeneratorFormProps = {
   theme: string;
   object: string;
@@ -9,15 +5,18 @@ type IdeaGeneratorFormProps = {
   palette: string;
   place: string;
   details: string;
-  error: string;
-  onThemeChange: (value: string) => void;
-  onObjectChange: (value: string) => void;
-  onMoodChange: (value: string) => void;
-  onPaletteChange: (value: string) => void;
-  onPlaceChange: (value: string) => void;
-  onDetailsChange: (value: string) => void;
+  idea: string;
   onGenerate: () => void;
 };
+
+const fields = [
+  { label: "Тема", key: "theme" },
+  { label: "Хто/Що?", key: "object" },
+  { label: "Настрій", key: "mood" },
+  { label: "Палітра", key: "palette" },
+  { label: "Де?", key: "place" },
+  { label: "Деталі", key: "details" },
+] as const;
 
 export default function IdeaGeneratorForm({
   theme,
@@ -26,143 +25,79 @@ export default function IdeaGeneratorForm({
   palette,
   place,
   details,
-  error,
-  onThemeChange,
-  onObjectChange,
-  onMoodChange,
-  onPaletteChange,
-  onPlaceChange,
-  onDetailsChange,
+  idea,
   onGenerate,
 }: IdeaGeneratorFormProps) {
+  const values = {
+    theme,
+    object,
+    mood,
+    palette,
+    place,
+    details,
+  };
+
   return (
-    <>
-      <div className="mb-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] p-4 text-sm opacity-80">
-        Select artwork parameters and generate a creative concept for your next
-        project.
+    <section className="mt-6 mx-auto max-w-4xl rounded-3xl bg-[var(--color-primary)]/85 p-6 shadow-lg md:p-8">
+      <h1
+        className="text-2xl font-bold text-[var(--color-background-soft)]"
+        style={{ fontFamily: "var(--font-heading)" }}
+      >
+        Генератор ідей
+      </h1>
+
+      <p className="mt-3 text-base text-[var(--color-background-soft)]/85">
+        Не знаєш що малювати? Ми підкажемо!
+      </p>
+
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        {fields.map((field) => (
+          <div
+            key={field.key}
+            className="relative flex min-h-[90px] items-center justify-center rounded-2xl bg-[var(--color-background-soft)] px-4 text-center shadow-md"
+          >
+            {values[field.key] && (
+              <span className="absolute left-4 top-3 text-xs uppercase tracking-wider text-[var(--color-text-muted)]">
+                {field.label}
+              </span>
+            )}
+
+            <span
+              key={values[field.key] || field.label}
+              className="animate-soft-reveal text-2xl font-bold text-[var(--color-primary)]"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              {values[field.key] || field.label}
+            </span>
+          </div>
+        ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
-          <label className="mb-2 block text-sm font-medium">
-            Theme
-          </label>
-
-          <Select
-            value={theme}
-            onChange={(e) => onThemeChange(e.target.value)}
-          >
-            <option value="">Select theme</option>
-            {ideaOptions.theme.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium">
-            Object
-          </label>
-
-          <Select
-            value={object}
-            onChange={(e) => onObjectChange(e.target.value)}
-          >
-            <option value="">Select object</option>
-            {ideaOptions.object.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium">
-            Mood
-          </label>
-
-          <Select
-            value={mood}
-            onChange={(e) => onMoodChange(e.target.value)}
-          >
-            <option value="">Select mood</option>
-            {ideaOptions.mood.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium">
-            Palette
-          </label>
-
-          <Select
-            value={palette}
-            onChange={(e) => onPaletteChange(e.target.value)}
-          >
-            <option value="">Select palette</option>
-            {ideaOptions.palette.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium">
-            Place
-          </label>
-
-          <Select
-            value={place}
-            onChange={(e) => onPlaceChange(e.target.value)}
-          >
-            <option value="">Select place</option>
-            {ideaOptions.place.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        </div>
-
-        <div>
-          <label className="mb-2 block text-sm font-medium">
-            Details
-          </label>
-
-          <Select
-            value={details}
-            onChange={(e) => onDetailsChange(e.target.value)}
-          >
-            <option value="">Select details</option>
-            {ideaOptions.details.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </Select>
-        </div>
+      <div className="mt-8 flex justify-center">
+        <button
+          type="button"
+          onClick={onGenerate}
+          className="rounded-2xl border border-[var(--color-primary-hover)] bg-[var(--color-background-soft)] px-8 py-2 text-2xl font-bold text-[var(--color-primary)] shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg active:scale-[0.98]"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          Генерувати
+        </button>
       </div>
 
-      {error && (
-        <div className="mt-4 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-600">
-          {error}
+      {idea && (
+        <div className="animate-soft-reveal mt-6 rounded-2xl bg-[var(--color-background-soft)]/90 p-5 text-[var(--color-text-primary)] shadow-md">
+          <h2
+            className="text-xl font-bold"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Ідея
+          </h2>
+
+          <p className="mt-3 leading-7">
+            {idea}
+          </p>
         </div>
       )}
-
-      <div className="mt-6">
-        <Button onClick={onGenerate}>
-          Generate Idea
-        </Button>
-      </div>
-    </>
+    </section>
   );
 }

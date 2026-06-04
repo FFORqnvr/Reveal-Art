@@ -1,8 +1,11 @@
 import { useState } from "react";
-import PageTitle from "../components/PageTitle";
 import IdeaGeneratorForm from "../sections/ideas/IdeaGeneratorForm";
-import GeneratedIdeaResult from "../sections/ideas/GeneratedIdeaResult";
+import { ideaOptions } from "../data/IdeaOptions";
 import { generateIdea } from "../utils/generateIdea";
+
+const randomItem = (items: string[]) => {
+  return items[Math.floor(Math.random() * items.length)];
+};
 
 export default function IdeasPage() {
   const [theme, setTheme] = useState("");
@@ -11,69 +14,47 @@ export default function IdeasPage() {
   const [palette, setPalette] = useState("");
   const [place, setPlace] = useState("");
   const [details, setDetails] = useState("");
-
   const [idea, setIdea] = useState("");
-  const [error, setError] = useState("");
 
   const handleGenerateIdea = () => {
-    if (!theme || !object || !mood || !palette || !place || !details) {
-      setError("Please select all parameters before generating an idea.");
-      setIdea("");
-      return;
-    }
+    const nextTheme = randomItem(ideaOptions.theme);
+    const nextObject = randomItem(ideaOptions.object);
+    const nextMood = randomItem(ideaOptions.mood);
+    const nextPalette = randomItem(ideaOptions.palette);
+    const nextPlace = randomItem(ideaOptions.place);
+    const nextDetails = randomItem(ideaOptions.details);
 
-    setError("");
+    setTheme(nextTheme);
+    setObject(nextObject);
+    setMood(nextMood);
+    setPalette(nextPalette);
+    setPlace(nextPlace);
+    setDetails(nextDetails);
 
     setIdea(
       generateIdea({
-        theme,
-        object,
-        mood,
-        palette,
-        place,
-        details,
+        theme: nextTheme,
+        object: nextObject,
+        mood: nextMood,
+        palette: nextPalette,
+        place: nextPlace,
+        details: nextDetails,
       }),
     );
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-      <PageTitle
-        title="Idea Generator"
-        subtitle="Generate inspiration for your next artwork. Works completely locally without AI APIs."
+    <main className="min-h-screen bg-[var(--color-background)] px-4 py-24 sm:px-6">
+      <IdeaGeneratorForm
+        theme={theme}
+        object={object}
+        mood={mood}
+        palette={palette}
+        place={place}
+        details={details}
+        idea={idea}
+        onGenerate={handleGenerateIdea}
       />
-
-      <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm">
-        <IdeaGeneratorForm
-          theme={theme}
-          object={object}
-          mood={mood}
-          palette={palette}
-          place={place}
-          details={details}
-          error={error}
-          onThemeChange={setTheme}
-          onObjectChange={setObject}
-          onMoodChange={setMood}
-          onPaletteChange={setPalette}
-          onPlaceChange={setPlace}
-          onDetailsChange={setDetails}
-          onGenerate={handleGenerateIdea}
-        />
-
-        {idea && (
-          <GeneratedIdeaResult
-            idea={idea}
-            theme={theme}
-            object={object}
-            mood={mood}
-            palette={palette}
-            place={place}
-            details={details}
-            onGenerateAgain={handleGenerateIdea}
-          />
-        )}
-      </div>
-    </div>
+    </main>
   );
 }

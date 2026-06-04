@@ -45,9 +45,7 @@ export default function Footer() {
                 <Link className="flex items-center" to="/gallery">
                   Галерея
                 </Link>
-
-              
-
+                
                 <Link className="flex items-center" to="/ideas">
                   Генератор идей
                 </Link>

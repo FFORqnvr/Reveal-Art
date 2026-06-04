@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
 
 const linksLeft = [
-  { to: "/ideas", label: "Идеи" },
-  { to: "/process", label: "Этапы работы" },
+  { to: "/ideas", label: "Ідеї" },
+  { to: "/process", label: "Етапи роботи" },
   { to: "/gallery", label: "Галерея" },
 ];
 
 const linksRight = [
-  { to: "/tools", label: "Инструменты" },
-  { to: "/monetization", label: "Заработок" },
+  { to: "/tools", label: "Інструменти" },
+  { to: "/monetization", label: "Заробіток" },
 ];
 
 export default function Header() {
