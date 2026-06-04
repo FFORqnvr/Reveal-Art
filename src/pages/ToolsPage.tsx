@@ -1,10 +1,7 @@
 import PageTitle from "../components/PageTitle";
+import { artTools } from "../data/artTools";
 
 export default function ToolsPage() {
-  const digital = ["Photoshop", "Procreate", "Blender", "Clip Studio Paint"];
-  const drawing = ["Pencils", "Ink Pens", "Markers", "Charcoal"];
-  const painting = ["Acrylic", "Oil Paint", "Watercolor", "Gouache"];
-
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <PageTitle
@@ -13,32 +10,44 @@ export default function ToolsPage() {
       />
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {/* Digital */}
-        <div className="p-5 border rounded-xl bg-[var(--color-surface)]">
-          <div className="text-lg font-semibold mb-3">Digital Tools</div>
+        <div className="rounded-xl border bg-[var(--color-surface)] p-5">
+          <div className="mb-3 text-lg font-semibold">
+            Digital Tools
+          </div>
+
           <ul className="space-y-2 text-sm opacity-80">
-            {digital.map((item) => (
-              <li key={item}>• {item}</li>
+            {artTools.digital.map((item) => (
+              <li key={item}>
+                • {item}
+              </li>
             ))}
           </ul>
         </div>
 
-        {/* Drawing */}
-        <div className="p-5 border rounded-xl bg-[var(--color-surface)]">
-          <div className="text-lg font-semibold mb-3">Drawing Tools</div>
+        <div className="rounded-xl border bg-[var(--color-surface)] p-5">
+          <div className="mb-3 text-lg font-semibold">
+            Drawing Tools
+          </div>
+
           <ul className="space-y-2 text-sm opacity-80">
-            {drawing.map((item) => (
-              <li key={item}>• {item}</li>
+            {artTools.drawing.map((item) => (
+              <li key={item}>
+                • {item}
+              </li>
             ))}
           </ul>
         </div>
 
-        {/* Painting */}
-        <div className="p-5 border rounded-xl bg-[var(--color-surface)]">
-          <div className="text-lg font-semibold mb-3">Painting Tools</div>
+        <div className="rounded-xl border bg-[var(--color-surface)] p-5">
+          <div className="mb-3 text-lg font-semibold">
+            Painting Tools
+          </div>
+
           <ul className="space-y-2 text-sm opacity-80">
-            {painting.map((item) => (
-              <li key={item}>• {item}</li>
+            {artTools.painting.map((item) => (
+              <li key={item}>
+                • {item}
+              </li>
             ))}
           </ul>
         </div>
