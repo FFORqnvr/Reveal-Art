@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[1075px]">
+    <section className="relative min-h-[940px]">
       <div className="relative z-10 mx-auto flex min-h-[560px] max-w-6xl items-center px-4 pt-[250px] md:px-8">
         <div className="max-w-xl border-l border-[var(--color-primary)] pl-8">
           <h1 className="font-[var(--font-heading)] text-5xl font-bold leading-tight text-[var(--color-text-primary)] md:text-6xl">
