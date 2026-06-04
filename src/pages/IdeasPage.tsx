@@ -56,6 +56,12 @@ const details = [
   "Magic symbols",
 ];
 
+const templates = [
+  "Create a {mood} {theme} artwork featuring a {subject} in a {location}. Use a {palette} palette and include {detail}.",
+  "Illustrate a {subject} inspired by {theme}. The scene takes place in a {location} with a {mood} atmosphere and {detail}. Use {palette} colors.",
+  "Design a {theme} composition set in a {location}. Focus on a {subject}, create a {mood} feeling, and add {detail}. Palette: {palette}.",
+];
+
 export default function IdeasPage() {
   const [theme, setTheme] = useState("");
   const [subject, setSubject] = useState("");
@@ -63,6 +69,39 @@ export default function IdeasPage() {
   const [palette, setPalette] = useState("");
   const [location, setLocation] = useState("");
   const [detail, setDetail] = useState("");
+
+  const [idea, setIdea] = useState("");
+  const [error, setError] = useState("");
+
+  const generateIdea = () => {
+    if (
+      !theme ||
+      !subject ||
+      !mood ||
+      !palette ||
+      !location ||
+      !detail
+    ) {
+      setError("Please fill in all fields.");
+      setIdea("");
+      return;
+    }
+
+    setError("");
+
+    const template =
+      templates[Math.floor(Math.random() * templates.length)];
+
+    const generatedIdea = template
+      .replace("{theme}", theme)
+      .replace("{subject}", subject)
+      .replace("{mood}", mood)
+      .replace("{palette}", palette)
+      .replace("{location}", location)
+      .replace("{detail}", detail);
+
+    setIdea(generatedIdea);
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
@@ -188,11 +227,29 @@ export default function IdeasPage() {
           </div>
         </div>
 
+        {error && (
+          <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-600">
+            {error}
+          </div>
+        )}
+
         <div className="mt-6">
-          <Button>
+          <Button onClick={generateIdea}>
             Generate Idea
           </Button>
         </div>
+
+        {idea && (
+          <div className="mt-6 rounded-2xl border border-[var(--color-border)] bg-white p-5">
+            <h3 className="font-semibold">
+              Generated Idea
+            </h3>
+
+            <p className="mt-3 text-sm leading-7">
+              {idea}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
