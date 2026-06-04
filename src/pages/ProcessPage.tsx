@@ -1,6 +1,7 @@
 import SectionDivider from "../components/SectionDivider";
 import SketchIntroSection from "../sections/process/SketchIntroSection";
 import SketchTrainerSection from "../sections/process/SketchTrainerSection";
+import ProcessTheorySection from "../sections/process/ProcessTheorySection";
 
 export default function ProcessPage() {
   return (
@@ -9,6 +10,7 @@ export default function ProcessPage() {
 
       <SketchIntroSection />
       <SketchTrainerSection />
+      <ProcessTheorySection />
     </main>
   );
 }

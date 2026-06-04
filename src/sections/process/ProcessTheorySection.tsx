@@ -1,0 +1,70 @@
+const processSections = [
+  {
+    number: "02",
+    title: "Фон",
+    text: "Фон — це не просто заливка позаду персонажа. Це атмосфера, простір, історія. Багато художників бояться малювати фони, але секрет у тому, щоб не ускладнювати. Починайте з простого: градієнти, абстрактні форми, розмиті фони. Потім переходьте до перспективи та деталізованих середовищ.",
+    tips: [
+      "Вивчіть базову перспективу: 1-точкову і 2-точкову.",
+      "Використовуйте великі плями для фону, щоб не загубитися в деталях.",
+      "Атмосферна перспектива: далекі об’єкти світліші та менш контрастні.",
+      "Почніть з мініатюрних ескізів композиції.",
+      "Фон має доповнювати головний об’єкт, а не відволікати від нього.",
+    ],
+  },
+  {
+    number: "03",
+    title: "Кольори",
+    text: "Робота з кольором — це мистецтво саме по собі. Розуміння теорії кольору допоможе створювати гармонійні та емоційні роботи. Колірне коло, комплементарні кольори, аналогові палітри — ці знання стануть вашим секретним інструментом.",
+    tips: [
+      "Обмежуйте палітру: 3–5 основних кольорів достатньо.",
+      "Теплі кольори — ближче, холодні — далі у просторі.",
+      "Використовуйте насичені кольори точково, а не скрізь.",
+      "Спробуйте малювати в відтінках сірого, а потім додавати колір.",
+      "Дивіться на реальний світ — природа ніколи не помиляється з кольорами.",
+    ],
+  },
+];
+
+export default function ProcessTheorySection() {
+  return (
+    <section className="mt-24 space-y-20">
+      {processSections.map((section) => (
+        <article key={section.title}>
+          <div className="flex items-start gap-5">
+            <div className="rounded-xl bg-[var(--color-surface-muted)] px-4 py-3 text-xl font-bold text-[var(--color-text-primary)] shadow-[var(--shadow-sm)]">
+              {section.number}
+            </div>
+
+            <div className="max-w-4xl">
+              <h2
+                className="text-4xl font-bold text-[var(--color-text-primary)] md:text-5xl"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                {section.title}
+              </h2>
+
+              <p className="mt-4 text-lg font-semibold leading-8 text-[var(--color-text-secondary)] md:text-xl">
+                {section.text}
+              </p>
+            </div>
+          </div>
+
+          <div className="ml-0 mt-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-primary)]/35 p-7 shadow-[var(--shadow-md)] md:ml-[92px]">
+            <h3
+              className="text-2xl font-bold text-[var(--color-text-primary)]"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Поради:
+            </h3>
+
+            <ul className="mt-4 space-y-2 text-[var(--color-text-secondary)]">
+              {section.tips.map((tip) => (
+                <li key={tip}>{tip}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </section>
+  );
+}
