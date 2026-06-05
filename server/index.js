@@ -98,22 +98,64 @@ app.get("/api/artworks/pending", (req, res) => {
   res.json(pendingArtworks);
 });
 
+app.get("/api/artworks/:id", (req, res) => {
+  const { id } = req.params;
+  const artworks = readArtworks();
+
+  const artwork = artworks.find((artwork) => artwork.id === id);
+
+  if (!artwork) {
+    res.status(404).json({
+      message: "Artwork not found",
+    });
+    return;
+  }
+
+  res.json(artwork);
+});
+
 app.post("/api/artworks", upload.single("image"), (req, res) => {
   const artworks = readArtworks();
 
+  if (!req.file) {
+    res.status(400).json({
+      message: "Image is required",
+    });
+    return;
+  }
+
+  const requiredFields = [
+    "title",
+    "description",
+    "artistName",
+    "artistNickname",
+    "category",
+    "style",
+    "technique",
+  ];
+
+  const missingField = requiredFields.find(
+    (field) => !req.body[field]?.trim(),
+  );
+
+  if (missingField) {
+    res.status(400).json({
+      message: `${missingField} is required`,
+    });
+    return;
+  }
+
   const newArtwork = {
     id: randomUUID(),
-    title: req.body.title ?? "",
-    description: req.body.description ?? "",
+    title: req.body.title,
+    description: req.body.description,
     artistId: randomUUID(),
-    artistName: req.body.artistName ?? "",
-    artistNickname: req.body.artistNickname ?? "",
-    category: req.body.category ?? "",
-    style: req.body.style ?? "",
-    technique: req.body.technique ?? "",
-    imageUrl: req.file
-      ? `http://localhost:${PORT}/uploads/${req.file.filename}`
-      : "",
+    artistName: req.body.artistName,
+    artistNickname: req.body.artistNickname,
+    category: req.body.category,
+    style: req.body.style,
+    technique: req.body.technique,
+    imageUrl: `http://localhost:${PORT}/uploads/${req.file.filename}`,
     status: "pending",
     createdAt: new Date().toISOString(),
   };
