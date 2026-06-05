@@ -7,6 +7,7 @@ import SubmitArtworkForm from "../sections/submit/SubmitArtworkForm";
 import type { SubmitFormErrors, SubmitFormState } from "../types/submit";
 
 import { validateSubmitForm } from "../utils/validateSubmitForm";
+import { createWatermarkedImage } from "../utils/createWatermarkedImage";
 
 export default function SubmitPage() {
   const [form, setForm] = useState<SubmitFormState>({
@@ -93,6 +94,11 @@ export default function SubmitPage() {
     setIsSubmitting(true);
 
     try {
+      const watermarkedImage = await createWatermarkedImage(
+        form.image,
+        form.artistNickname,
+      );
+
       const formData = new FormData();
 
       formData.append("title", form.title);
@@ -102,7 +108,7 @@ export default function SubmitPage() {
       formData.append("category", form.category);
       formData.append("style", form.style);
       formData.append("technique", form.technique);
-      formData.append("image", form.image);
+      formData.append("image", watermarkedImage);
 
       const response = await fetch("http://localhost:4000/api/artworks", {
         method: "POST",
@@ -124,9 +130,7 @@ export default function SubmitPage() {
 
   return (
     <main className="mx-auto max-w-6xl mb px-4 py-24 md:px-8">
-
       <section className="mt-14 text-center">
-
         <h1
           className="text-4xl font-bold text-[var(--color-text-primary)] md:text-6xl"
           style={{ fontFamily: "var(--font-heading)" }}
@@ -140,7 +144,8 @@ export default function SubmitPage() {
         >
           Надішліть свою роботу до галереї. Після перевірки вона з’явиться серед інших творчих робіт.
         </p>
-      <SectionDivider/>
+
+        <SectionDivider />
       </section>
 
       <section className="mt-14 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
@@ -156,7 +161,6 @@ export default function SubmitPage() {
             <p className="mt-4 leading-8 text-[var(--color-background-soft)]/85">
               Завантажуйте лише власні роботи. Якщо у створенні був використаний AI, це потрібно чесно вказати в описі або техніці.
             </p>
-
           </div>
 
           <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-background-soft)] p-7 shadow-[var(--shadow-sm)]">

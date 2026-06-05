@@ -19,17 +19,22 @@ export default function ArtworkCard({ artwork }: Props) {
   }
 
   return (
-    <article className="mx-auto w-full max-w-[280px] overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-md)]">
+    <article
+      className="mx-auto w-full max-w-[280px] overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-md)]"
+      onContextMenu={(event) => event.preventDefault()}
+    >
       {hasImage ? (
         <img
           src={artwork.imageUrl}
           alt={artwork.title}
           loading="lazy"
-          className="aspect-[4/5] w-full object-cover"
+          draggable={false}
+          onContextMenu={(event) => event.preventDefault()}
+          className="aspect-[4/5] w-full select-none object-cover"
         />
       ) : (
         <div className="flex aspect-[4/5] w-full items-center justify-center bg-[var(--color-surface)] text-sm text-[var(--color-text-muted)]">
-          Зображення не знайдено
+          Image not found
         </div>
       )}
 

@@ -1,6 +1,5 @@
 ﻿import { useEffect, useState } from "react";
 
-import PageTitle from "../components/PageTitle";
 
 import type { Artwork } from "../types/Artwork";
 
