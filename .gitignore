@@ -25,3 +25,5 @@ dist-ssr
 
 server/uploads/
 structure.txt
+
+server/data/artworks.json
