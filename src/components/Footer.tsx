@@ -5,7 +5,7 @@ export default function Footer() {
     <footer
       className="mt-16 border-t"
       style={{
-        backgroundColor: "var(--color-surface)",
+        backgroundColor: "var(--color-footer)",
         borderColor: "var(--color-border)",
       }}
     >
@@ -16,7 +16,7 @@ export default function Footer() {
               className="mb-10 text-5xl "
               style={{
                 fontFamily: "var(--font-heading)",
-                color: "var(--color-text-primary)",
+                color: "var(--color-monetization-card-bg)",
               }}
             >
               Reveal Art
@@ -25,7 +25,7 @@ export default function Footer() {
             <p
               className="max-w-md text-l"
               style={{
-                color: "var(--color-text-secondary)",
+                color: "var(--color-monetization-card-bg)",
               }}
             >
               Демонстраційна арт-платформа для публікації робіт,
@@ -65,7 +65,7 @@ export default function Footer() {
           className="mt-6 border-t pt-4 text-sm"
           style={{
             borderColor: "var(--color-border)",
-            color: "var(--color-text-muted)",
+            color: "var(--color-monetization-card-bg)",
           }}
         >
           © 2026 Reveal Art — Diploma Project

@@ -32,6 +32,7 @@
   --color-gallery-warning-bg: #6a463b;
   --color-gallery-card-bg: #F3E4D7;
   --color-monetization-card-bg: #f7e3d2;
+  --color-footer: #8a6558;
 
   /* Borders */
   --color-border: #C7A99F;
@@ -71,5 +72,5 @@
   --shadow-lg: 0 8px 24px rgba(90, 63, 55, 0.16);
 }
 a:hover {
-  color: var(--color-primary-hover);
+  color: var(--color-monetization-card-bg);
 }
