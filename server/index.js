@@ -1,9 +1,5 @@
 ﻿import express from "express";
 import cors from "cors";
-import multer from "multer";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { randomUUID } from "crypto";
 
 import {
@@ -12,50 +8,19 @@ import {
   writeArtworks,
 } from "./storage/artworks.storage.js";
 
+import {
+  upload,
+  uploadsDir,
+} from "./middleware/upload.js";
+
 const app = express();
 const PORT = 4000;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const uploadsDir = path.join(__dirname, "uploads");
-
 ensureArtworksStorage();
-
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
 
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(uploadsDir));
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    const filename = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
-    cb(null, filename);
-  },
-});
-
-const upload = multer({
-  storage,
-  limits: {
-    fileSize: 5 * 1024 * 1024,
-  },
-  fileFilter: (req, file, cb) => {
-    if (!file.mimetype.startsWith("image/")) {
-      cb(new Error("Only image files are allowed"));
-      return;
-    }
-
-    cb(null, true);
-  },
-});
 
 app.get("/api/artworks", (req, res) => {
   const artworks = readArtworks();
