@@ -1,130 +1,57 @@
-﻿import { randomUUID } from "crypto";
-
-import {
-  readArtworks,
-  writeArtworks,
-} from "../storage/artworks.storage.js";
-
-const PORT = 4000;
+﻿import {
+  createArtwork as createArtworkService,
+  getAllArtworks as getAllArtworksService,
+  getPendingArtworks as getPendingArtworksService,
+  getPublishedArtworks as getPublishedArtworksService,
+  updateArtworkStatus as updateArtworkStatusService,
+} from "../services/artworks.service.js";
 
 export function getAllArtworks(req, res) {
-  const artworks = readArtworks();
+  const artworks = getAllArtworksService();
 
   res.json(artworks);
 }
 
 export function getPublishedArtworks(req, res) {
-  const artworks = readArtworks();
+  const artworks = getPublishedArtworksService();
 
-  const publishedArtworks = artworks.filter(
-    (artwork) => artwork.status === "published",
-  );
-
-  res.json(publishedArtworks);
+  res.json(artworks);
 }
 
 export function getPendingArtworks(req, res) {
-  const artworks = readArtworks();
+  const artworks = getPendingArtworksService();
 
-  const pendingArtworks = artworks.filter(
-    (artwork) => artwork.status === "pending",
-  );
-
-  res.json(pendingArtworks);
+  res.json(artworks);
 }
 
 export function createArtwork(req, res) {
-  const artworks = readArtworks();
+  const result = createArtworkService({
+    body: req.body,
+    file: req.file,
+  });
 
-  if (!req.file) {
-    res.status(400).json({
-      message: "Image is required",
+  if (result.error) {
+    res.status(result.statusCode).json({
+      message: result.error,
     });
     return;
   }
 
-  const requiredFields = [
-    "title",
-    "description",
-    "artistName",
-    "artistNickname",
-    "category",
-    "style",
-    "technique",
-  ];
-
-  const missingField = requiredFields.find(
-    (field) => !req.body[field]?.trim(),
-  );
-
-  if (missingField) {
-    res.status(400).json({
-      message: `${missingField} is required`,
-    });
-    return;
-  }
-
-  const newArtwork = {
-    id: randomUUID(),
-    title: req.body.title,
-    description: req.body.description,
-    artistId: randomUUID(),
-    artistName: req.body.artistName,
-    artistNickname: req.body.artistNickname,
-    category: req.body.category,
-    style: req.body.style,
-    technique: req.body.technique,
-    imageUrl: `http://localhost:${PORT}/uploads/${req.file.filename}`,
-    status: "pending",
-    createdAt: new Date().toISOString(),
-  };
-
-  artworks.unshift(newArtwork);
-  writeArtworks(artworks);
-
-  res.status(201).json(newArtwork);
+  res.status(result.statusCode).json(result.data);
 }
 
 export function updateArtworkStatus(req, res) {
-  const { id } = req.params;
-  const { status } = req.body;
+  const result = updateArtworkStatusService({
+    id: req.params.id,
+    status: req.body.status,
+  });
 
-  const allowedStatuses = ["pending", "published", "rejected"];
-
-  if (!allowedStatuses.includes(status)) {
-    res.status(400).json({
-      message: "Invalid artwork status",
+  if (result.error) {
+    res.status(result.statusCode).json({
+      message: result.error,
     });
     return;
   }
 
-  const artworks = readArtworks();
-
-  const artworkExists = artworks.some(
-    (artwork) => artwork.id === id,
-  );
-
-  if (!artworkExists) {
-    res.status(404).json({
-      message: "Artwork not found",
-    });
-    return;
-  }
-
-  const updatedArtworks = artworks.map((artwork) =>
-    artwork.id === id
-      ? {
-          ...artwork,
-          status,
-        }
-      : artwork,
-  );
-
-  writeArtworks(updatedArtworks);
-
-  const updatedArtwork = updatedArtworks.find(
-    (artwork) => artwork.id === id,
-  );
-
-  res.json(updatedArtwork);
+  res.status(result.statusCode).json(result.data);
 }
