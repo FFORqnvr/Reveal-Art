@@ -28,6 +28,8 @@ export default function ArtworkCard({ artwork }: Props) {
           src={artwork.imageUrl}
           alt={artwork.title}
           loading="lazy"
+          decoding="async"
+          fetchPriority="low"
           draggable={false}
           onContextMenu={(event) => event.preventDefault()}
           className="aspect-[4/5] w-full select-none object-cover"
