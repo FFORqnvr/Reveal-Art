@@ -6,26 +6,24 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { randomUUID } from "crypto";
 
+import {
+  ensureArtworksStorage,
+  readArtworks,
+  writeArtworks,
+} from "./storage/artworks.storage.js";
+
 const app = express();
 const PORT = 4000;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dataDir = path.join(__dirname, "data");
 const uploadsDir = path.join(__dirname, "uploads");
-const artworksFile = path.join(dataDir, "artworks.json");
 
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
+ensureArtworksStorage();
 
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-if (!fs.existsSync(artworksFile)) {
-  fs.writeFileSync(artworksFile, JSON.stringify([], null, 2));
 }
 
 app.use(cors());
@@ -59,19 +57,6 @@ const upload = multer({
   },
 });
 
-function readArtworks() {
-  try {
-    const data = fs.readFileSync(artworksFile, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-function writeArtworks(artworks) {
-  fs.writeFileSync(artworksFile, JSON.stringify(artworks, null, 2));
-}
-
 app.get("/api/artworks", (req, res) => {
   const artworks = readArtworks();
 
@@ -96,22 +81,6 @@ app.get("/api/artworks/pending", (req, res) => {
   );
 
   res.json(pendingArtworks);
-});
-
-app.get("/api/artworks/:id", (req, res) => {
-  const { id } = req.params;
-  const artworks = readArtworks();
-
-  const artwork = artworks.find((artwork) => artwork.id === id);
-
-  if (!artwork) {
-    res.status(404).json({
-      message: "Artwork not found",
-    });
-    return;
-  }
-
-  res.json(artwork);
 });
 
 app.post("/api/artworks", upload.single("image"), (req, res) => {
