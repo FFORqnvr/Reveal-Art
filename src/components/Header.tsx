@@ -53,7 +53,7 @@ export default function Header() {
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="text-sm transition-opacity duration-200 hover:opacity-80"
+                className="text-xl transition-opacity duration-200 hover:opacity-80"
                 style={navLinkStyle}
               >
                 {link.label}
@@ -71,7 +71,7 @@ export default function Header() {
           >
             <span className="opacity-70">✦ ─</span>
 
-            <span className="text-lg">Reveal Art</span>
+            <span className="text-3xl">Reveal Art</span>
 
             <span className="opacity-70">─ ✦</span>
           </NavLink>
@@ -81,7 +81,7 @@ export default function Header() {
               <NavLink
                 key={link.to}
                 to={link.to}
-                className="text-sm transition-opacity duration-200 hover:opacity-80"
+                className="text-xl transition-opacity duration-200 hover:opacity-80"
                 style={navLinkStyle}
               >
                 {link.label}

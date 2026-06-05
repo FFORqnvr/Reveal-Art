@@ -28,6 +28,7 @@ const sources = [
 export default function InspirationSourcesSection() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20 md:px-8">
+    
       <h2
         className="text-4xl font-bold text-[var(--color-text-idea-heading)]"
         style={{ fontFamily: "var(--font-heading)" }}
@@ -49,13 +50,13 @@ export default function InspirationSourcesSection() {
             className="rounded-2xl border-2 border-[var(--color-text-primary)]/70 bg-[var(--color-card-bg)]/45 p-7 shadow-sm"
           >
             <h3
-              className="text-3xl font-bold text-[var(--color-text-head-insp-card)]"
+              className="text-3xl font-bold text-[var(--color-text-idea-head-card)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {source.title}
             </h3>
 
-            <p className="mt-4 leading-7 text-[var(--color-text-p-insp-card)]">
+            <p className="mt-4 leading-7 text-[var(--color-text-idea-p-card)]">
               {source.desc}
             </p>
           </article>

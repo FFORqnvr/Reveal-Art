@@ -5,6 +5,7 @@ import {
   promotionSteps,
   type EarningPlatform,
 } from "../data/monetizationSections";
+import SectionDivider from "../components/SectionDivider";
 
 function PlatformCard({ item }: { item: EarningPlatform }) {
   return (
@@ -41,30 +42,31 @@ export default function MonetizationPage() {
 
       <section className="mt-14 text-center">
         <h1
-          className="text-4xl font-bold text-[var(--color-text-primary)] md:text-6xl"
+          className="text-4xl font-bold text-[var(--color-text-idea-p)] md:text-6xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Заробіток на творчості
         </h1>
 
         <p
-          className="mx-auto mt-5 text-2xl leading-relaxed text-[var(--color-text-secondary)] md:text-3xl"
+          className="mx-auto mt-5 mb-11 text-2xl leading-relaxed text-[var(--color-text-idea-p)] md:text-3xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Ваше мистецтво має цінність. Дізнайтеся, де та як можна
           монетизувати свою творчість.
         </p>
+        <SectionDivider/>
       </section>
 
-      <section className="mx-auto mt-14 max-w-5xl rounded-[28px] border border-[var(--color-border)] bg-[var(--color-primary)]/30 p-7 shadow-[var(--shadow-md)] md:p-8">
+      <section className="mx-auto mt-14 max-w-5xl rounded-[28px] border border-[var(--color-border)] bg-[var(--color-monetization-card-bg)]/30 p-7 shadow-[var(--shadow-md)] md:p-8">
         <h2
-          className="text-3xl font-bold text-[var(--color-text-primary)]"
+          className="text-3xl font-bold text-[var(--color-text-idea-p)]"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           «Мої скіли недостатньо високі»
         </h2>
 
-        <div className="mt-5 space-y-4 text-lg leading-8 text-[var(--color-text-secondary)]">
+        <div className="mt-5 space-y-4 text-lg leading-8 text-[var(--color-text-idea-p)]">
           <p>
             Це найпоширеніший страх серед художників. Але правда в тому, що
             завжди є хтось, кому потрібні саме ваші навички. Студент, який
@@ -88,7 +90,7 @@ export default function MonetizationPage() {
 
       <section className="mt-24">
         <h2
-          className="text-3xl font-bold text-[var(--color-text-primary)] md:text-4xl"
+          className="text-3xl font-bold text-[var(--color-text-idea-p)] md:text-4xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Де заробляти
@@ -103,7 +105,7 @@ export default function MonetizationPage() {
 
       <section className="mt-24">
         <h2
-          className="text-3xl font-bold text-[var(--color-text-primary)] md:text-4xl"
+          className="text-3xl font-bold text-[var(--color-text-idea-p)] md:text-4xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Скільки брати за роботу
@@ -145,9 +147,10 @@ export default function MonetizationPage() {
         </div>
       </section>
 
-      <section className="mt-24">
+      <section className="mt-14 ">
+        <SectionDivider/>
         <h2
-          className="text-3xl font-bold text-[var(--color-text-primary)] md:text-4xl"
+          className="text-3xl font-bold text-[var(--color-text-idea-p)] md:text-4xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Як просувати свою творчість

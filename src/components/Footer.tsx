@@ -28,18 +28,18 @@ export default function Footer() {
                 color: "var(--color-text-secondary)",
               }}
             >
-              Демонстрационная арт-платформа для публикации работ,
-              вдохновения художников и просмотра творческих проектов.
+              Демонстраційна арт-платформа для публікації робіт,
+              натхнення художників та перегляду творчих проектів.
             </p>
           </div>
 
           <div className="grid grid-cols-2 ">
                 <Link className="flex items-center" to="/">
-                  Главная
+                  Головна
                 </Link>
 
                 <Link className="flex items-center" to="/submit">
-                  Добавить работу
+                  Додати роботу
                 </Link>
 
                 <Link className="flex items-center" to="/gallery">
@@ -47,7 +47,7 @@ export default function Footer() {
                 </Link>
                 
                 <Link className="flex items-center" to="/ideas">
-                  Генератор идей
+                  Генератор ідей
                 </Link>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function Footer() {
             color: "var(--color-text-muted)",
           }}
         >
-          © 2026 Reveal Art — Diploma MVP Project
+          © 2026 Reveal Art — Diplom Project
         </div>
       </div>
     </footer>

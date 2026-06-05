@@ -8,13 +8,13 @@ export default function SketchIntroSection() {
 
         <div className="max-w-4xl">
           <h1
-            className="text-4xl font-bold text-[var(--color-text-primary)] md:text-5xl"
+            className="text-4xl font-bold text-[var(--color-text-idea-heading)] md:text-5xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Скетч
           </h1>
 
-          <p className="mt-4 text-lg leading-8 text-[var(--color-text-secondary)] md:text-xl">
+          <p className="mt-4 text-lg leading-8 text-[var(--color-text-idea-p)] md:text-xl">
             Скетч — це перший і найважливіший етап. Це не має бути ідеально —
             це має передати ідею. Існують різні типи скетчів: швидкий скетч
             для передачі руху, лінійний скетч для чистої форми, тональний скетч
@@ -25,13 +25,13 @@ export default function SketchIntroSection() {
 
       <div className="mt-10 rounded-2xl border border-[var(--color-border)] bg-[var(--color-primary)]/70 p-7 shadow-[var(--shadow-md)]">
         <h2
-          className="text-2xl font-bold text-white"
+          className="text-2xl font-bold"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Поради:
         </h2>
 
-        <ul className="mt-4 space-y-2 text-white">
+        <ul className="mt-4 space-y-2">
           <li>Почніть з великих форм, потім додавайте деталі.</li>
           <li>Не бійтеся “брудних” ліній — це нормально для скетчу.</li>
           <li>Практикуйте gesture drawing щодня по 15–20 хвилин.</li>

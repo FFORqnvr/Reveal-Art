@@ -70,9 +70,9 @@ export default function SketchTrainerSection() {
   };
 
   return (
-    <section className="mt-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-primary)]/55 p-6 shadow-[var(--shadow-lg)] md:p-8">
+    <section className="mt-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-process-bg)]/55 p-6 shadow-[var(--shadow-lg)] md:p-8">
       <h2
-        className="text-center text-3xl font-bold text-[var(--color-text-primary)]"
+        className="text-center text-3xl font-bold text-[var(--color-text-idea-p)]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         Тренажер скетчів

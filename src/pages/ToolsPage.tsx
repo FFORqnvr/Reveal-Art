@@ -4,6 +4,7 @@ import {
   phoneTabletTools,
   type ArtTool,
 } from "../data/artTools";
+import SectionDivider from "../components/SectionDivider";
 
 function ToolCard({ tool }: { tool: ArtTool }) {
   return (
@@ -64,22 +65,23 @@ export default function ToolsPage() {
 
       <section className="mt-14 text-center">
         <h1
-          className="text-4xl font-bold text-[var(--color-text-primary)] md:text-6xl"
+          className="text-4xl font-bold text-[var(--color-text-idea-p)] md:text-6xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Інструменти
         </h1>
 
         <p
-          className="mx-auto mt-5  text-xl leading-relaxed text-[var(--color-text-secondary)] md:text-2xl"
+          className="mx-auto mt-5 mb-10 text-xl leading-relaxed text-[var(--color-text-idea-p)] md:text-2xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Малювати можна будь-де і на чому завгодно — від телефону до
           професійного графічного планшета.
         </p>
+        <SectionDivider/>
       </section>
 
-      <section className="mx-auto mt-10 max-w-5xl rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-6 shadow-[var(--shadow-sm)]">
+      <section className="mx-auto mt-10 max-w-5xl rounded-2xl border border-[var(--color-border)] bg-[var(--color-gallery-card-bg)] p-6 shadow-[var(--shadow-sm)]">
         <p className="leading-7 text-[var(--color-text-secondary)]">
           <strong className="text-[var(--color-text-primary)]">
             Важливо:

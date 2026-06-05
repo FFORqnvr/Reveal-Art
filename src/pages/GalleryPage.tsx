@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import SectionDivider from "../components/SectionDivider";
 
 import GalleryGrid from "../sections/gallery/GalleryGrid";
 
@@ -19,7 +20,7 @@ export default function GalleryPage() {
         </h1>
 
         <p
-          className="mx-auto mt-5  text-2xl leading-relaxed text-[var(--color-text-secondary)] md:text-3xl"
+          className="mx-auto mt-5 text-2xl leading-relaxed text-[var(--color-text-idea-p)] md:text-3xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Тут художники діляться своїми роботами. Натхнення поруч — варто лише
@@ -29,14 +30,18 @@ export default function GalleryPage() {
         <div className="mt-8 flex justify-center">
           <Link
             to="/submit"
-            className="rounded-full bg-[var(--color-primary)] px-8 py-3 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-background-soft)] shadow-[var(--shadow-md)] transition duration-300 hover:-translate-y-1 hover:bg-[var(--color-primary-hover)] hover:!text-[var(--color-background-soft)] hover:shadow-[var(--shadow-lg)]"
+            className="mb-11 rounded-full bg-[var(--color-primary)] px-8 py-3 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-background-soft)] shadow-[var(--shadow-md)] transition duration-300 hover:-translate-y-1 hover:bg-[var(--color-primary-hover)] hover:!text-[var(--color-background-soft)] hover:shadow-[var(--shadow-lg)]"
           >
             Додати свою роботу
           </Link>
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-primary)] shadow-[var(--shadow-md)]">
+      <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 md:px-8">
+        <SectionDivider />
+      </div>
+
+      <section className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-gallery-warning-bg)] shadow-[var(--shadow-md)]">
         <button
           type="button"
           onClick={() => setIsRulesOpen((prev) => !prev)}
@@ -44,7 +49,7 @@ export default function GalleryPage() {
         >
           <div>
             <h2
-              className="text-2xl font-bold text-[var(--color-background-soft)] md:text-3xl"
+              className="text-2xl font-bold text-[var(--color-gallery-text)] md:text-3xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Важливо! Авторське право та AI
@@ -75,45 +80,45 @@ export default function GalleryPage() {
                   : "-translate-y-4 opacity-0"
               }`}
             >
-              <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-5 shadow-[var(--shadow-sm)]">
+              <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-gallery-card-bg)] p-5 shadow-[var(--shadow-sm)]">
                 <h3
-                  className="text-xl font-bold text-[var(--color-text-primary)]"
+                  className="text-xl font-bold text-[var(--color-text-idea-head-card)]"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   Тільки власні роботи
                 </h3>
 
-                <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">
+                <p className="mt-3 leading-7 text-[var(--color-text-idea-p-card)]">
                   Ви маєте право публікувати лише ті роботи, автором яких є ви.
                   Публікація чужих робіт без дозволу — порушення авторського
                   права.
                 </p>
               </article>
 
-              <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-5 shadow-[var(--shadow-sm)]">
+              <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-gallery-card-bg)] p-5 shadow-[var(--shadow-sm)]">
                 <h3
-                  className="text-xl font-bold text-[var(--color-text-primary)]"
+                  className="text-xl font-bold text-[var(--color-text-idea-head-card)]"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   Роботи з AI
                 </h3>
 
-                <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">
+                <p className="mt-3 leading-7 text-[var(--color-text-idea-p-card)]">
                   Якщо робота була створена або частково згенерована за
                   допомогою AI — обов’язково позначайте це. Видавати
                   AI-генерацію за власноруч намальовану роботу заборонено.
                 </p>
               </article>
 
-              <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-background-soft)] p-5 shadow-[var(--shadow-sm)]">
+              <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-gallery-card-bg)] p-5 shadow-[var(--shadow-sm)]">
                 <h3
-                  className="text-xl font-bold text-[var(--color-text-primary)]"
+                  className="text-xl font-bold text-[var(--color-text-idea-head-card)]"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   Відповідальність
                 </h3>
 
-                <p className="mt-3 leading-7 text-[var(--color-text-secondary)]">
+                <p className="mt-3 leading-7 text-[var(--color-text-idea-p-card)]">
                   Публікуючи роботу, ви підтверджуєте, що маєте всі права на
                   неї. У разі порушень робота буде видалена, а акаунт
                   заблокований.

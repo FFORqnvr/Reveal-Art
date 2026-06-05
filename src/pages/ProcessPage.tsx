@@ -5,7 +5,7 @@ import ProcessTheorySection from "../sections/process/ProcessTheorySection";
 
 export default function ProcessPage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-24 md:px-8">
+    <main className="mx-auto max-w-6xl px-4 py-24 mt-11 md:px-8">
       <SectionDivider />
 
       <SketchIntroSection />

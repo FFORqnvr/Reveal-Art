@@ -38,16 +38,16 @@ export default function ArtistHabitsSection() {
         {habits.map((habit) => (
           <article
             key={habit.title}
-            className="rounded-2xl border-2 border-[var(--color-text-primary)]/30    bg-[var(--color-primary)]/15 p-8 shadow-sm"
+            className="rounded-2xl border-2 border-[var(--color-text-primary)]/30    bg-[var(--color-habit-bg-card)]/15 p-8 shadow-sm"
           >
             <h3
-              className="text-3xl font-bold text-[var(--color-text-primary)]"
+              className="text-3xl font-bold text-[var(--color-text-idea-head-card)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {habit.title}
             </h3>
 
-            <p className="mt-4 leading-8 text-[var(--color-text-secondary)]">
+            <p className="mt-4 leading-8 text-[var(--color-text-idea-p-card)]">
               {habit.text}
             </p>
           </article>

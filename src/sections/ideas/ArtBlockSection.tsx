@@ -35,19 +35,16 @@ export default function ArtBlockSection() {
 
       <div className="mt-14">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
-            Creative recovery
-          </p>
 
           <h2
-            className="text-4xl font-bold leading-tight text-[var(--color-text-primary)] md:text-5xl"
+            className="text-4xl font-bold leading-tight text-[var(--color-text-idea-heading)] md:text-5xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Артблок: що це і як подолати
           </h2>
 
           <p
-            className="mt-5 text-2xl text-[var(--color-text-secondary)] md:text-3xl"
+            className="mt-5 text-2xl text-[var(--color-text-idea-p)] md:text-3xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Коли натхнення зникає — це нормально
@@ -72,7 +69,7 @@ export default function ArtBlockSection() {
 
               <p
                 className="-mt-4 text-lg leading-8"
-                style={{ color: "#cfb8aeff" }}
+                style={{ color: "#f0e9e7ff" }}
               >
                 Артблок — це стан, коли художник не може створювати нове.
                 Причини різні: вигорання, страх критики, перфекціонізм,
@@ -81,7 +78,7 @@ export default function ArtBlockSection() {
 
               <p
                 className="mt-5 text-lg leading-8"
-                style={{ color: "#D1C0B9    " }}
+                style={{ color: "#f0e9e7ff    " }}
               >
                 Це не привід панікувати — з ним стикається кожен митець.
                 Головне — не змушувати себе “через силу”. Натхнення
@@ -107,13 +104,13 @@ export default function ArtBlockSection() {
 
                 <div className="p-6">
                   <h3
-                    className="text-2xl font-bold text-[var(--color-text-primary)]"
+                    className="text-2xl font-bold text-[var(--color-text-idea-head-card)]"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {tip.title}
                   </h3>
 
-                  <p className="mt-2 leading-7 text-[var(--color-text-secondary)]">
+                  <p className="mt-2 leading-7 text-[var(--color-text-idea-p-card)]">
                     {tip.text}
                   </p>
                 </div>

@@ -6,13 +6,17 @@ export default function ExploreSection() {
       <div className="mx-auto max-w-6xl px-4 md:px-8">
       <SectionDivider />
         <div className="mx-auto mt-12 max-w-4xl text-center">
-          <blockquote
-            className="text-4xl leading-relaxed text-[var(--color-text-explore)] md:text-5xl"
-            style={{ fontFamily: "var(--font-heading)" }}
-          >
-            Кожен майстер колись був початківцем. Кожен професіонал колись був
-            аматором. Кожен великий шлях починається з першого кроку.
-          </blockquote>
+         <blockquote
+  className="text-4xl leading-relaxed text-[var(--color-text-explore)] md:text-5xl"
+  style={{
+    fontFamily: '"Cormorant Infant", Georgia, "Times New Roman", serif',
+    fontWeight: 300,
+    fontStyle: "italic",
+  }}
+>
+  Кожен майстер колись був початківцем. Кожен професіонал колись був
+  аматором. Кожен великий шлях починається з першого кроку.
+</blockquote>
 
           <p
             className="mt-10 text-3xl text-[var(--color-explore)]"

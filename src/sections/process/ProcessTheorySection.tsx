@@ -50,13 +50,13 @@ export default function ProcessTheorySection() {
 
             <div className="max-w-4xl">
               <h2
-                className="text-4xl font-bold text-[var(--color-text-primary)] md:text-5xl"
+                className="text-4xl font-bold text-[var(--color-text-idea-heading)] md:text-5xl"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {section.title}
               </h2>
 
-              <p className="mt-4 text-lg font-semibold leading-8 text-[var(--color-text-secondary)] md:text-xl">
+              <p className="mt-4 text-lg font-semibold leading-8 text-[var(--color-text-idea-p)] md:text-xl">
                 {section.text}
               </p>
             </div>
@@ -64,13 +64,13 @@ export default function ProcessTheorySection() {
 
           <div className="ml-0 mt-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-primary)]/35 p-7 shadow-[var(--shadow-md)] md:ml-[92px]">
             <h3
-              className="text-2xl font-bold text-[var(--color-text-primary)]"
+              className="text-2xl font-bold text-[var(--color-text-idea-head-card)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Поради:
             </h3>
 
-            <ul className="mt-4 space-y-2 text-[var(--color-text-secondary)]">
+            <ul className="mt-4 space-y-2 text-[var(--color-text-idea-head-card)]">
               {section.tips.map((tip) => (
                 <li key={tip}>{tip}</li>
               ))}

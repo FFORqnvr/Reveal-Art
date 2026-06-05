@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
   /* Backgrounds */
   --color-background: #D1C0B9;
@@ -11,8 +14,8 @@
   /* Text */
   --color-text-primary: #5A3F37;
   --color-text-secondary: #7A5A50;
-  --color-text-muted: #A07C72;
-  --color-text-card: #ffffff; 
+  --color-text-muted: #664a43;
+  --color-text-card: #d1c0b9; 
   --color-text-welcome-mini: #422820;
   --color-text-welcome-big: #7D5042;
   --color-explore: #996B58;
@@ -23,8 +26,14 @@
   --color-text-idea-heading: #7D5042;
   --color-text-idea-p: #422820;
   --color-card-bg: #a7887e;
-  --color-text-head-insp-card: #422820;
-  --color-text-p-insp-card: #684236;
+  --color-text-idea-head-card: #422820;
+  --color-text-idea-p-card: #684236;
+  --color-habit-bg-card: #A67B69;
+  --color-process-bg: #a7887e;
+  --color-gallery-text: #D1C0B9;
+  --color-gallery-warning-bg: #6a463b;
+  --color-gallery-card-bg: #F3E4D7;
+  --color-monetization-card-bg: #f7e3d2;
 
   /* Borders */
   --color-border: #C7A99F;
@@ -41,8 +50,10 @@
   --color-danger: #A85E58;
 
   /* Fonts */
-  --font-heading: Georgia, "Times New Roman", serif;
-  --font-body: Inter, Arial, sans-serif;
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-main-page: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-helen: "Cormorant Infant", Georgia, "Times New Roman", serif;
 
   /* Radius */
   --radius-sm: 8px;
