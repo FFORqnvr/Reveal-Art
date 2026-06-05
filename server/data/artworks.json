@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": "1c9340a4-4056-401c-9204-32b3c995c2b9",
+    "title": "dasda",
+    "description": "asdas",
+    "artistId": "70c2a62e-c6a8-4b74-8b44-92d761edbd7e",
+    "artistName": "asdasasd",
+    "artistNickname": "asdasd",
+    "category": "painting",
+    "style": "modern",
+    "technique": "3d",
+    "imageUrl": "http://localhost:4000/uploads/1780673736198-377078132.png",
+    "status": "published",
+    "createdAt": "2026-06-05T15:35:36.210Z"
+  },
+  {
+    "id": "ce3b5bed-9a01-4c54-9b41-9de7d381313d",
+    "title": "asdssdasd",
+    "description": "asds",
+    "artistId": "36d3fa92-f74f-4118-9844-4a44bbf7881d",
+    "artistName": "asdads",
+    "artistNickname": "asdasd",
+    "category": "painting",
+    "style": "modern",
+    "technique": "oil",
+    "imageUrl": "http://localhost:4000/uploads/1780673614448-174347337.png",
+    "status": "published",
+    "createdAt": "2026-06-05T15:33:34.461Z"
+  }
+]

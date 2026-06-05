@@ -1,4 +1,4 @@
-import type { Artwork } from "../../data/Artworks";
+﻿import type { Artwork } from "../../types/Artwork";
 
 type AdminArtworkCardProps = {
   artwork: Artwork;

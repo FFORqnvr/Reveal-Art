@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import SectionDivider from "../components/SectionDivider";
 
 import SuccessMessage from "../sections/submit/SuccessMessage";
@@ -24,6 +24,7 @@ export default function SubmitPage() {
   const [preview, setPreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (
     e:
@@ -56,27 +57,7 @@ export default function SubmitPage() {
     setPreview(url);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const validationErrors = validateSubmitForm(form);
-
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
-
-    setSuccess(false);
-    setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    console.log("PENDING ARTWORK", {
-      ...form,
-      status: "pending",
-    });
-
+  const resetForm = () => {
     setForm({
       title: "",
       description: "",
@@ -90,8 +71,55 @@ export default function SubmitPage() {
 
     setPreview(null);
     setErrors({});
-    setSuccess(true);
-    setIsSubmitting(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const validationErrors = validateSubmitForm(form);
+
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    if (!form.image) {
+      return;
+    }
+
+    setSuccess(false);
+    setSubmitError("");
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData();
+
+      formData.append("title", form.title);
+      formData.append("description", form.description);
+      formData.append("artistName", form.artistName);
+      formData.append("artistNickname", form.artistNickname);
+      formData.append("category", form.category);
+      formData.append("style", form.style);
+      formData.append("technique", form.technique);
+      formData.append("image", form.image);
+
+      const response = await fetch("http://localhost:4000/api/artworks", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit artwork");
+      }
+
+      resetForm();
+      setSuccess(true);
+    } catch {
+      setSubmitError("Не удалось отправить работу на сервер.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -107,15 +135,15 @@ export default function SubmitPage() {
           className="text-4xl font-bold text-[var(--color-text-primary)] md:text-6xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Додати свою роботу
+          Р”РѕРґР°С‚Рё СЃРІРѕСЋ СЂРѕР±РѕС‚Сѓ
         </h1>
 
         <p
           className="mx-auto mt-5  text-2xl leading-relaxed text-[var(--color-text-secondary)] md:text-3xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Надішліть свою роботу до галереї. Після перевірки вона з’явиться серед
-          інших творчих робіт.
+          РќР°РґС–С€Р»С–С‚СЊ СЃРІРѕСЋ СЂРѕР±РѕС‚Сѓ РґРѕ РіР°Р»РµСЂРµС—. РџС–СЃР»СЏ РїРµСЂРµРІС–СЂРєРё РІРѕРЅР° Р·вЂ™СЏРІРёС‚СЊСЃСЏ СЃРµСЂРµРґ
+          С–РЅС€РёС… С‚РІРѕСЂС‡РёС… СЂРѕР±С–С‚.
         </p>
       </section>
 
@@ -126,27 +154,25 @@ export default function SubmitPage() {
               className="text-3xl font-bold text-[var(--color-background-soft)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Перед публікацією
+              РџРµСЂРµРґ РїСѓР±Р»С–РєР°С†С–С”СЋ
             </h2>
 
             <p className="mt-4 leading-8 text-[var(--color-background-soft)]/85">
-              Завантажуйте лише власні роботи. Якщо у створенні був використаний
-              AI, це потрібно чесно вказати в описі або техніці.
+              Р—Р°РІР°РЅС‚Р°Р¶СѓР№С‚Рµ Р»РёС€Рµ РІР»Р°СЃРЅС– СЂРѕР±РѕС‚Рё. РЇРєС‰Рѕ Сѓ СЃС‚РІРѕСЂРµРЅРЅС– Р±СѓРІ РІРёРєРѕСЂРёСЃС‚Р°РЅРёР№
+              AI, С†Рµ РїРѕС‚СЂС–Р±РЅРѕ С‡РµСЃРЅРѕ РІРєР°Р·Р°С‚Рё РІ РѕРїРёСЃС– Р°Р±Рѕ С‚РµС…РЅС–С†С–.
             </p>
 
             <div className="mt-8 space-y-4">
-              
-
               <div className="rounded-2xl bg-[var(--color-background-soft)]/12 p-4">
                 <p className="text-sm uppercase tracking-[0.2em] text-[var(--color-background-soft)]/60">
-                  Формат
+                  Р¤РѕСЂРјР°С‚
                 </p>
 
                 <p
                   className="mt-1 text-2xl font-bold text-[var(--color-background-soft)]"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  Діджитал
+                  Р”С–РґР¶РёС‚Р°Р»
                 </p>
               </div>
             </div>
@@ -157,15 +183,15 @@ export default function SubmitPage() {
               className="text-2xl font-bold text-[var(--color-text-primary)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Що варто додати?
+              Р©Рѕ РІР°СЂС‚Рѕ РґРѕРґР°С‚Рё?
             </h3>
 
             <ul className="mt-5 space-y-3 leading-7 text-[var(--color-text-secondary)]">
-              <li>Назву роботи.</li>
-              <li>Короткий опис і задум.</li>
-              <li>Ім’я автора або нікнейм.</li>
-              <li>Категорію, стиль і техніку.</li>
-              <li>Зображення хорошої якості.</li>
+              <li>РќР°Р·РІСѓ СЂРѕР±РѕС‚Рё.</li>
+              <li>РљРѕСЂРѕС‚РєРёР№ РѕРїРёСЃ С– Р·Р°РґСѓРј.</li>
+              <li>Р†РјвЂ™СЏ Р°РІС‚РѕСЂР° Р°Р±Рѕ РЅС–РєРЅРµР№Рј.</li>
+              <li>РљР°С‚РµРіРѕСЂС–СЋ, СЃС‚РёР»СЊ С– С‚РµС…РЅС–РєСѓ.</li>
+              <li>Р—РѕР±СЂР°Р¶РµРЅРЅСЏ С…РѕСЂРѕС€РѕС— СЏРєРѕСЃС‚С–.</li>
             </ul>
           </div>
         </aside>
@@ -176,15 +202,21 @@ export default function SubmitPage() {
               className="text-3xl font-bold text-[var(--color-text-primary)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Форма публікації
+              Р¤РѕСЂРјР° РїСѓР±Р»С–РєР°С†С–С—
             </h2>
 
             <p className="mt-2 text-[var(--color-text-secondary)]">
-              Заповніть поля нижче, щоб відправити роботу на модерацію.
+              Р—Р°РїРѕРІРЅС–С‚СЊ РїРѕР»СЏ РЅРёР¶С‡Рµ, С‰РѕР± РІС–РґРїСЂР°РІРёС‚Рё СЂРѕР±РѕС‚Сѓ РЅР° РјРѕРґРµСЂР°С†С–СЋ.
             </p>
           </div>
 
           <SuccessMessage isVisible={success} />
+
+          {submitError && (
+            <div className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700">
+              {submitError}
+            </div>
+          )}
 
           <div className="mt-6">
             <SubmitArtworkForm
