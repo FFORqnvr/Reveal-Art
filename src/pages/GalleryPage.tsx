@@ -1,13 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SectionDivider from "../components/SectionDivider";
 
 import GalleryGrid from "../sections/gallery/GalleryGrid";
 
-import { artworks } from "../data/Artworks";
+import type { Artwork } from "../types/Artwork";
 
 export default function GalleryPage() {
   const [isRulesOpen, setIsRulesOpen] = useState(false);
+  const [artworks, setArtworks] = useState<Artwork[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadArtworks() {
+      try {
+        const response = await fetch("http://localhost:4000/api/artworks");
+
+        if (!response.ok) {
+          throw new Error("Failed to load artworks");
+        }
+
+        const data = await response.json();
+
+        setArtworks(data);
+      } catch {
+        setError("Не вдалося завантажити роботи з сервера.");
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadArtworks();
+  }, []);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-35 md:px-8">
@@ -130,7 +155,19 @@ export default function GalleryPage() {
       </section>
 
       <section className="mt-14">
-        <GalleryGrid artworks={artworks} />
+        {isLoading && (
+          <p className="text-center text-xl text-[var(--color-text-secondary)]">
+            Завантаження робіт...
+          </p>
+        )}
+
+        {error && (
+          <p className="text-center text-xl text-[var(--color-negative)]">
+            {error}
+          </p>
+        )}
+
+        {!isLoading && !error && <GalleryGrid artworks={artworks} />}
       </section>
     </main>
   );

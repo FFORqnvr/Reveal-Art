@@ -1,7 +1,6 @@
 import Input from "../../components/Input";
 import Textarea from "../../components/Textarea";
 import Select from "../../components/Select";
-import Button from "../../components/Button";
 import ImageUploadField from "./ImageUploadField";
 import type { SubmitFormErrors, SubmitFormState } from "../../types/submit";
 
@@ -186,9 +185,13 @@ export default function SubmitArtworkForm({
         />
       </div>
 
-      <Button type="submit" disabled={isSubmitting} className="w-full">
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full rounded-full bg-[var(--color-primary)] px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-background-soft)] transition duration-300 hover:-translate-y-1 hover:bg-[var(--color-primary-hover)] disabled:cursor-not-allowed disabled:opacity-60"
+      >
         {isSubmitting ? "Відправляємо..." : "Відправити роботу"}
-      </Button>
+      </button>
     </form>
   );
 }
