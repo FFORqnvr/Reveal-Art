@@ -21,14 +21,14 @@ export default function ArtistHabitsSection() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20 md:px-8">
       <h2
-        className="text-4xl font-bold text-[var(--color-text-primary)]"
+        className="text-4xl font-bold text-[var(--color-text-idea-heading)]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         Звички, що роблять художника
       </h2>
 
       <p
-        className="mt-4 text-3xl text-[var(--color-text-secondary)]"
+        className="mt-4 text-3xl text-[var(--color-text-idea-p)]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         Невеликі дії, що мають великий вплив

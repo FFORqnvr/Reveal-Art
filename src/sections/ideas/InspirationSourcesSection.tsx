@@ -29,14 +29,14 @@ export default function InspirationSourcesSection() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-20 md:px-8">
       <h2
-        className="text-4xl font-bold text-[var(--color-text-inspiration)]"
+        className="text-4xl font-bold text-[var(--color-text-idea-heading)]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
-        Де шукати натхнення
+        Де шукати натхнення?
       </h2>
 
       <p
-        className="mt-4 text-3xl text-[var(--color-text-inspiration)]"
+        className="mt-4 text-3xl text-[var(--color-text-idea-p)]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         Натхнення скрізь — потрібно лише навчитись його бачити
