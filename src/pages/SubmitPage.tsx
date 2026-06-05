@@ -139,14 +139,14 @@ export default function SubmitPage() {
 
               <div className="rounded-2xl bg-[var(--color-background-soft)]/12 p-4">
                 <p className="text-sm uppercase tracking-[0.2em] text-[var(--color-background-soft)]/60">
-                  Format
+                  Формат
                 </p>
 
                 <p
                   className="mt-1 text-2xl font-bold text-[var(--color-background-soft)]"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
-                  Digital artwork
+                  Діджитал
                 </p>
               </div>
             </div>
