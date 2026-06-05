@@ -16,7 +16,7 @@ app.use("/uploads", express.static(uploadsDir));
 
 app.use("/api/artworks", artworksRoutes);
 
-app.use((error, req, res, next) => {
+app.use((error, _req, res, _next) => {
   res.status(400).json({
     message: error.message || "Server error",
   });
@@ -25,3 +25,4 @@ app.use((error, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
