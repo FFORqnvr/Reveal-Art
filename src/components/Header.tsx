@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 
+import ornamentLeft from "../assets/header-ornament-left.png";
+import ornamentRight from "../assets/header-ornament-right.png";
+
 const linksLeft = [
   { to: "/ideas", label: "Ідеї" },
   { to: "/process", label: "Етапи роботи" },
@@ -36,10 +39,10 @@ export default function Header() {
         >
           <path
             d="
-             M 10 35
-            Q 10 75 90 80
-            L 1110 80
-            Q 1190 75 1190 35
+              M 10 35
+              Q 10 75 90 80
+              L 1110 80
+              Q 1190 75 1190 35
             "
             fill="none"
             stroke="rgba(243,232,223,0.75)"
@@ -69,11 +72,21 @@ export default function Header() {
               fontFamily: "var(--font-heading)",
             }}
           >
-            <span className="opacity-70">✦ ─</span>
+            <img
+              src={ornamentLeft}
+              alt=""
+              className="h-15 w-auto opacity-80"
+              aria-hidden="true"
+            />
 
             <span className="text-3xl">Reveal Art</span>
 
-            <span className="opacity-70">─ ✦</span>
+            <img
+              src={ornamentRight}
+              alt=""
+              className="h-15 w-auto opacity-80"
+              aria-hidden="true"
+            />
           </NavLink>
 
           <div className="flex items-center gap-8">

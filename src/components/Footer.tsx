@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6 md:flex-row md:justify-between">
          <div className="flex h-full flex-col pt-1">
             <h3
-              className="mb-20 text-xl "
+              className="mb-10 text-5xl "
               style={{
                 fontFamily: "var(--font-heading)",
                 color: "var(--color-text-primary)",
@@ -23,7 +23,7 @@ export default function Footer() {
             </h3>
 
             <p
-              className="max-w-md text-sm"
+              className="max-w-md text-l"
               style={{
                 color: "var(--color-text-secondary)",
               }}
@@ -59,7 +59,7 @@ export default function Footer() {
             color: "var(--color-text-muted)",
           }}
         >
-          © 2026 Reveal Art — Diplom Project
+          © 2026 Reveal Art — Diploma Project
         </div>
       </div>
     </footer>
