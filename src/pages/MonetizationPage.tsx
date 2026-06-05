@@ -49,16 +49,19 @@ export default function MonetizationPage() {
         </h1>
 
         <p
-          className="mx-auto mt-5 mb-11 text-2xl leading-relaxed text-[var(--color-text-idea-p)] md:text-3xl"
+          className="mx-auto mt-5 font-bold mb-11 text-xl leading-relaxed text-[var(--color-text-idea-p)] md:text-3xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Ваше мистецтво має цінність. Дізнайтеся, де та як можна
           монетизувати свою творчість.
         </p>
-        <SectionDivider/>
       </section>
 
-      <section className="mx-auto mt-14 max-w-5xl rounded-[28px] border border-[var(--color-border)] bg-[var(--color-monetization-card-bg)]/30 p-7 shadow-[var(--shadow-md)] md:p-8">
+            <div className="relative left-1/2 w-[1500px] -translate-x-1/2 px-4 md:px-8">
+              <SectionDivider />
+            </div>
+
+      <section className="mx-auto mt-14 max-w-5xl rounded-[28px] border border-[var(--color-border)] bg-[var(--color-gallery-warning-bg)]/30 p-7 shadow-[var(--shadow-md)] md:p-8">
         <h2
           className="text-3xl font-bold text-[var(--color-text-idea-p)]"
           style={{ fontFamily: "var(--font-heading)" }}

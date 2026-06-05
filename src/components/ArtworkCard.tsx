@@ -29,7 +29,7 @@ export default function ArtworkCard({ artwork }: Props) {
         />
       ) : (
         <div className="flex aspect-[4/5] w-full items-center justify-center bg-[var(--color-surface)] text-sm text-[var(--color-text-muted)]">
-          Image not found
+          Зображення не знайдено
         </div>
       )}
 

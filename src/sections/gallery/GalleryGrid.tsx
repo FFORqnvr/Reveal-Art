@@ -10,8 +10,8 @@ export default function GalleryGrid({
 }: GalleryGridProps) {
   if (artworks.length === 0) {
     return (
-      <div className="py-12 text-center opacity-60">
-        No artworks found
+      <div className="py-12 text-bold text-center opacity-60">
+        Зображень не знайдено
       </div>
     );
   }

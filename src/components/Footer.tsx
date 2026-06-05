@@ -49,6 +49,15 @@ export default function Footer() {
                 <Link className="flex items-center" to="/ideas">
                   Генератор ідей
                 </Link>
+                
+                <Link className="flex items-center" to="/monetization">
+                  Заробіток
+                </Link>
+
+                <Link className="flex items-center" to="/tools">
+                  Інструменти
+                </Link>
+                
           </div>
         </div>
 

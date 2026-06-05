@@ -7,7 +7,7 @@ export default function ExploreSection() {
       <SectionDivider />
         <div className="mx-auto mt-12 max-w-4xl text-center">
          <blockquote
-  className="text-4xl leading-relaxed text-[var(--color-text-explore)] md:text-5xl"
+  className="text-4xl font-bold leading-relaxed text-[var(--color-text-explore)] md:text-5xl"
   style={{
     fontFamily: '"Cormorant Infant", Georgia, "Times New Roman", serif',
     fontWeight: 300,

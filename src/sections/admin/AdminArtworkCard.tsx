@@ -55,17 +55,17 @@ export default function AdminArtworkCard({
         <button
           type="button"
           onClick={() => onPublish(artwork.id)}
-          className="w-full rounded-lg bg-green-600 px-4 py-2 text-white transition hover:bg-green-700 sm:w-auto"
+          className="w-full rounded-lg bg-[var(--color-text-idea-p-card)] px-4 py-2 text-white transition hover:bg-green-700 sm:w-auto"
         >
-          Publish
+          Опублікувати
         </button>
 
         <button
           type="button"
           onClick={() => onReject(artwork.id)}
-          className="w-full rounded-lg bg-red-600 px-4 py-2 text-white transition hover:bg-red-700 sm:w-auto"
+          className="w-full rounded-lg bg-[var(--color-text-idea-p-card)] px-4 py-2 text-white transition hover:bg-red-700 sm:w-auto"
         >
-          Reject
+          Відхилити
         </button>
       </div>
     </div>

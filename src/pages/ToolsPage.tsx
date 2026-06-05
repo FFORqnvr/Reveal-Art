@@ -72,14 +72,17 @@ export default function ToolsPage() {
         </h1>
 
         <p
-          className="mx-auto mt-5 mb-10 text-xl leading-relaxed text-[var(--color-text-idea-p)] md:text-2xl"
+          className="mx-auto mt-5 mb-10 font-bold text-xl leading-relaxed text-[var(--color-text-idea-p)] md:text-2xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Малювати можна будь-де і на чому завгодно — від телефону до
           професійного графічного планшета.
         </p>
-        <SectionDivider/>
       </section>
+
+             <div className="relative left-1/2 w-[1500px] -translate-x-1/2 px-4 md:px-8">
+              <SectionDivider />
+            </div>
 
       <section className="mx-auto mt-10 max-w-5xl rounded-2xl border border-[var(--color-border)] bg-[var(--color-gallery-card-bg)] p-6 shadow-[var(--shadow-sm)]">
         <p className="leading-7 text-[var(--color-text-secondary)]">

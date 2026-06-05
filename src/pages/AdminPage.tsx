@@ -86,10 +86,7 @@ export default function AdminPage() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-28 sm:px-6">
-      <PageTitle
-        title="Admin Moderation"
-        subtitle="Review submitted artworks from backend"
-      />
+      
 
       <AdminMessage message={message} />
 

@@ -42,14 +42,14 @@ export default function GalleryPage() {
     <main className="mx-auto max-w-6xl px-4 py-35 md:px-8">
       <section className="text-center">
         <h1
-          className="text-4xl font-bold text-[var(--color-text-primary)] md:text-5xl"
+          className="text-4xl mt-5 font-bold text-[var(--color-text-idea-p)] md:text-5xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Галерея робіт
         </h1>
 
         <p
-          className="mx-auto mt-5 text-2xl leading-relaxed text-[var(--color-text-idea-p)] md:text-3xl"
+          className="mx-auto mt-5 mb-15 font-bold text-2xl leading-relaxed text-[var(--color-text-idea-p)] md:text-3xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           Тут художники діляться своїми роботами. Натхнення поруч — варто лише подивитись.
@@ -65,7 +65,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 md:px-8">
+      <div className="relative left-1/2 w-[1500px] -translate-x-1/2 px-4 md:px-8">
         <SectionDivider />
       </div>
 
@@ -154,7 +154,7 @@ export default function GalleryPage() {
       <section className="mt-14">
         {isLoading && (
           <p className="text-center text-xl text-[var(--color-text-secondary)]">
-            Loading artworks...
+            Завантаження роботи...
           </p>
         )}
 
