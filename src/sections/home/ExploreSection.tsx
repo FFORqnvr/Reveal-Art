@@ -7,7 +7,7 @@ export default function ExploreSection() {
       <SectionDivider />
         <div className="mx-auto mt-12 max-w-4xl text-center">
           <blockquote
-            className="text-4xl leading-relaxed text-[var(--color-text-primary)] md:text-5xl"
+            className="text-4xl leading-relaxed text-[var(--color-text-explore)] md:text-5xl"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Кожен майстер колись був початківцем. Кожен професіонал колись був
@@ -15,7 +15,7 @@ export default function ExploreSection() {
           </blockquote>
 
           <p
-            className="mt-10 text-3xl text-[var(--color-accent)]"
+            className="mt-10 text-3xl text-[var(--color-explore)]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             — Хелен Хейз

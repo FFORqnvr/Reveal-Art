@@ -38,15 +38,15 @@ export default function IdeaGeneratorForm({
   };
 
   return (
-    <section className="mt-6 mx-auto max-w-4xl rounded-3xl bg-[var(--color-primary)]/85 p-6 shadow-lg md:p-8">
+    <section className="mt-6 mx-auto max-w-4xl rounded-3xl bg-[var(--color-generator)]/85 p-6 shadow-lg md:p-8">
       <h1
-        className="text-2xl font-bold text-[var(--color-background-soft)]"
+        className="text-2xl font-bold text-[var(--color-text-generator-heading)]"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         Генератор ідей
       </h1>
 
-      <p className="mt-3 text-base text-[var(--color-background-soft)]/85">
+      <p className="mt-3 text-base text-[var(--color-text-generator-p)]/85">
         Не знаєш що малювати? Ми підкажемо!
       </p>
 

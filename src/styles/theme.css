@@ -12,7 +12,18 @@
   --color-text-primary: #5A3F37;
   --color-text-secondary: #7A5A50;
   --color-text-muted: #A07C72;
-  --color-text-card: #fdfbed; 
+  --color-text-card: #ffffff; 
+  --color-text-welcome-mini: #422820;
+  --color-text-welcome-big: #7D5042;
+  --color-explore: #996B58;
+  --color-text-explore: #5E3E31;
+  --color-generator: #7D5042;
+  --color-text-generator-heading: #D1C0B9;
+  --color-text-generator-p: #D1C0B9;
+  --color-text-inspiration: #7D5042;
+  --color-card-bg: #a7887e;
+  --color-text-head-insp-card: #422820;
+  --color-text-p-insp-card: #684236;
 
   /* Borders */
   --color-border: #C7A99F;
@@ -21,6 +32,7 @@
   --color-primary: #8a6558;
   --color-primary-hover: #7F584F;
   --color-accent: #C79A7B;
+
 
   /* States */
   --color-success: #6F8A66;

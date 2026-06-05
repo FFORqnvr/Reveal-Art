@@ -1,57 +1,57 @@
 export const ideaOptions = {
   theme: [
-    "memory",
-    "dream",
-    "nature",
-    "city",
-    "emotion",
+    "Згадка",
+    "Мрія",
+    "Природа",
+    "Місто",
+    "Емоція",
   ],
 
   object: [
-    "mirror",
-    "window",
-    "tree",
-    "face",
-    "building",
+    "Дзеркало",
+    "Вікно",
+    "Дерево",
+    "Обличчя",
+    "Будівля",
   ],
 
   mood: [
-    "calm",
-    "dark",
-    "melancholic",
-    "bright",
-    "mysterious",
+    "Спокійний",
+    "Безрадісний",
+    "Меланхолічний",
+    "Веселий",
+    "Загадковий",
   ],
 
   palette: [
-    "warm",
-    "cold",
-    "monochrome",
-    "pastel",
-    "high contrast",
+    "Теплий",
+    "Холодний",
+    "Монохромний",
+    "Пастель",
+    "Високий контраст",
   ],
 
   place: [
-    "forest",
-    "street",
-    "room",
-    "void",
-    "ocean",
+    "Ліс",
+    "Вулиця",
+    "Кімната",
+    "Пустота",
+    "Океан",
   ],
 
   details: [
-    "fog",
-    "light rays",
-    "dust",
-    "rain",
-    "texture noise",
+    "Туман",
+    "Промені солнця",
+    "Пил",
+    "Дощ",
+    "Текстурний шум",
   ],
 };
 
 export const ideaTemplates = [
-  "Create a {mood} {theme} artwork featuring a {object} in a {place}. Use a {palette} palette and include {details}.",
+  "Намалюйте {mood} {theme} із зображенням {object} у {place}. Використайтк {palette} та додайте {details}.",
 
-  "Illustrate a {object} inspired by {theme}. The scene takes place in a {place} with a {mood} atmosphere and {details}. Use {palette} colors.",
+  "Проілюструйте {object} натхненний {theme}. Сцена відбувається в {place} з атмосферою {mood} та {details}. Використайте {palette} кольори.",
 
-  "Design a {theme} composition set in a {place}. Focus on a {object}, create a {mood} feeling, and add {details}. Palette: {palette}.",
+  "Створіть композицію {theme} розташовану в {place}. Зосередьтеся на {object}, створіть відчуття {mood} та додайте {details}. Палітра: {palette}.",
 ];
