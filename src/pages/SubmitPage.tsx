@@ -123,28 +123,24 @@ export default function SubmitPage() {
   };
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-24 md:px-8">
-      <SectionDivider />
+    <main className="mx-auto max-w-6xl mb px-4 py-24 md:px-8">
 
       <section className="mt-14 text-center">
-        <p className="mb-3 text-sm uppercase tracking-[0.35em] text-[var(--color-text-muted)]">
-          Share your artwork
-        </p>
 
         <h1
           className="text-4xl font-bold text-[var(--color-text-primary)] md:text-6xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          Р”РѕРґР°С‚Рё СЃРІРѕСЋ СЂРѕР±РѕС‚Сѓ
+          Додати свою роботу
         </h1>
 
         <p
-          className="mx-auto mt-5  text-2xl leading-relaxed text-[var(--color-text-secondary)] md:text-3xl"
+          className="mx-auto mt-5 mb-11 text-2xl leading-relaxed text-[var(--color-text-secondary)] md:text-3xl"
           style={{ fontFamily: "var(--font-heading)" }}
         >
-          РќР°РґС–С€Р»С–С‚СЊ СЃРІРѕСЋ СЂРѕР±РѕС‚Сѓ РґРѕ РіР°Р»РµСЂРµС—. РџС–СЃР»СЏ РїРµСЂРµРІС–СЂРєРё РІРѕРЅР° Р·вЂ™СЏРІРёС‚СЊСЃСЏ СЃРµСЂРµРґ
-          С–РЅС€РёС… С‚РІРѕСЂС‡РёС… СЂРѕР±С–С‚.
+          Надішліть свою роботу до галереї. Після перевірки вона з’явиться серед інших творчих робіт.
         </p>
+      <SectionDivider/>
       </section>
 
       <section className="mt-14 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
@@ -154,28 +150,13 @@ export default function SubmitPage() {
               className="text-3xl font-bold text-[var(--color-background-soft)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              РџРµСЂРµРґ РїСѓР±Р»С–РєР°С†С–С”СЋ
+              Перед публікацією
             </h2>
 
             <p className="mt-4 leading-8 text-[var(--color-background-soft)]/85">
-              Р—Р°РІР°РЅС‚Р°Р¶СѓР№С‚Рµ Р»РёС€Рµ РІР»Р°СЃРЅС– СЂРѕР±РѕС‚Рё. РЇРєС‰Рѕ Сѓ СЃС‚РІРѕСЂРµРЅРЅС– Р±СѓРІ РІРёРєРѕСЂРёСЃС‚Р°РЅРёР№
-              AI, С†Рµ РїРѕС‚СЂС–Р±РЅРѕ С‡РµСЃРЅРѕ РІРєР°Р·Р°С‚Рё РІ РѕРїРёСЃС– Р°Р±Рѕ С‚РµС…РЅС–С†С–.
+              Завантажуйте лише власні роботи. Якщо у створенні був використаний AI, це потрібно чесно вказати в описі або техніці.
             </p>
 
-            <div className="mt-8 space-y-4">
-              <div className="rounded-2xl bg-[var(--color-background-soft)]/12 p-4">
-                <p className="text-sm uppercase tracking-[0.2em] text-[var(--color-background-soft)]/60">
-                  Р¤РѕСЂРјР°С‚
-                </p>
-
-                <p
-                  className="mt-1 text-2xl font-bold text-[var(--color-background-soft)]"
-                  style={{ fontFamily: "var(--font-heading)" }}
-                >
-                  Р”С–РґР¶РёС‚Р°Р»
-                </p>
-              </div>
-            </div>
           </div>
 
           <div className="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-background-soft)] p-7 shadow-[var(--shadow-sm)]">
@@ -183,15 +164,15 @@ export default function SubmitPage() {
               className="text-2xl font-bold text-[var(--color-text-primary)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Р©Рѕ РІР°СЂС‚Рѕ РґРѕРґР°С‚Рё?
+              Що варто додати?
             </h3>
 
             <ul className="mt-5 space-y-3 leading-7 text-[var(--color-text-secondary)]">
-              <li>РќР°Р·РІСѓ СЂРѕР±РѕС‚Рё.</li>
-              <li>РљРѕСЂРѕС‚РєРёР№ РѕРїРёСЃ С– Р·Р°РґСѓРј.</li>
-              <li>Р†РјвЂ™СЏ Р°РІС‚РѕСЂР° Р°Р±Рѕ РЅС–РєРЅРµР№Рј.</li>
-              <li>РљР°С‚РµРіРѕСЂС–СЋ, СЃС‚РёР»СЊ С– С‚РµС…РЅС–РєСѓ.</li>
-              <li>Р—РѕР±СЂР°Р¶РµРЅРЅСЏ С…РѕСЂРѕС€РѕС— СЏРєРѕСЃС‚С–.</li>
+              <li>Назву роботи.</li>
+              <li>Короткий опис і задум.</li>
+              <li>Ім'я автора або нікнейм.</li>
+              <li>Категорію, стиль та техніку.</li>
+              <li>Зображення хорошої якості.</li>
             </ul>
           </div>
         </aside>
@@ -202,11 +183,11 @@ export default function SubmitPage() {
               className="text-3xl font-bold text-[var(--color-text-primary)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Р¤РѕСЂРјР° РїСѓР±Р»С–РєР°С†С–С—
+              Форма публікації
             </h2>
 
             <p className="mt-2 text-[var(--color-text-secondary)]">
-              Р—Р°РїРѕРІРЅС–С‚СЊ РїРѕР»СЏ РЅРёР¶С‡Рµ, С‰РѕР± РІС–РґРїСЂР°РІРёС‚Рё СЂРѕР±РѕС‚Сѓ РЅР° РјРѕРґРµСЂР°С†С–СЋ.
+              Заповніть поля нижче, щоб відправити роботу на модерацію.
             </p>
           </div>
 

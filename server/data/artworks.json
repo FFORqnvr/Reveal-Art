@@ -1,30 +1,30 @@
 [
   {
-    "id": "1c9340a4-4056-401c-9204-32b3c995c2b9",
-    "title": "dasda",
-    "description": "asdas",
-    "artistId": "70c2a62e-c6a8-4b74-8b44-92d761edbd7e",
-    "artistName": "asdasasd",
-    "artistNickname": "asdasd",
-    "category": "painting",
+    "id": "2ac0a373-ff98-4861-9a5a-62a20a008d05",
+    "title": "fgdfgdfg",
+    "description": "dfgdfgdf",
+    "artistId": "23b98fca-5472-4a94-bb11-f0365878ce84",
+    "artistName": "fdgdfgdf",
+    "artistNickname": "dfgdfgdfs",
+    "category": "digital",
     "style": "modern",
-    "technique": "3d",
-    "imageUrl": "http://localhost:4000/uploads/1780673736198-377078132.png",
+    "technique": "oil",
+    "imageUrl": "http://localhost:4000/uploads/1780674780158-3105763.png",
     "status": "published",
-    "createdAt": "2026-06-05T15:35:36.210Z"
+    "createdAt": "2026-06-05T15:53:00.169Z"
   },
   {
-    "id": "ce3b5bed-9a01-4c54-9b41-9de7d381313d",
-    "title": "asdssdasd",
-    "description": "asds",
-    "artistId": "36d3fa92-f74f-4118-9844-4a44bbf7881d",
-    "artistName": "asdads",
-    "artistNickname": "asdasd",
+    "id": "abce6310-0f4a-4941-a5dc-406c7eb99dc3",
+    "title": "rfghfgh",
+    "description": "fghfghfgdh",
+    "artistId": "3cebb858-8d93-4ff5-ad06-2177197661b2",
+    "artistName": "fgdhfgh",
+    "artistNickname": "fghfgdhdfg",
     "category": "painting",
     "style": "modern",
     "technique": "oil",
-    "imageUrl": "http://localhost:4000/uploads/1780673614448-174347337.png",
-    "status": "published",
-    "createdAt": "2026-06-05T15:33:34.461Z"
+    "imageUrl": "http://localhost:4000/uploads/1780674731822-503513346.jpg",
+    "status": "rejected",
+    "createdAt": "2026-06-05T15:52:11.828Z"
   }
 ]
