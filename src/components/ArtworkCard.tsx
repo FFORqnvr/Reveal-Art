@@ -1,4 +1,4 @@
-import type { Artwork } from "../types/Artwork";
+﻿import type { Artwork } from "../types/Artwork";
 
 type Props = {
   artwork?: Artwork;
@@ -19,7 +19,7 @@ export default function ArtworkCard({ artwork }: Props) {
   }
 
   return (
-    <article className="mx-auto w-full max-w-[280px]   overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-md)] ">
+    <article className="mx-auto w-full max-w-[280px] overflow-hidden rounded-[14px] border border-[var(--color-border)] bg-[var(--color-background-soft)] shadow-[var(--shadow-sm)] transition duration-200 hover:-translate-y-1 hover:shadow-[var(--shadow-md)]">
       {hasImage ? (
         <img
           src={artwork.imageUrl}
@@ -29,7 +29,7 @@ export default function ArtworkCard({ artwork }: Props) {
         />
       ) : (
         <div className="flex aspect-[4/5] w-full items-center justify-center bg-[var(--color-surface)] text-sm text-[var(--color-text-muted)]">
-          Изображение не найдено
+          Image not found
         </div>
       )}
 
